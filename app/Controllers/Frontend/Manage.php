@@ -4,7 +4,7 @@ namespace App\Controllers\Frontend;
 
 use App\Controllers\BaseController;
 use App\Models\PenggunaModel;
-use App\Models\WisataModel;
+use App\Models\UmkmModel;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
@@ -27,17 +27,17 @@ class Manage extends BaseController
     {
         $this->view->setData([
             "page" => "dashboard",
-            "wisata" => WisataModel::all(),
+            "umkm" => UmkmModel::all(),
         ]);
         return $this->view->render("pages/panel/admin/index");
     }
-    public function wisata(): string
+    public function umkm(): string
     {
         $this->view->setData([
-            "page" => "wisata",
-            "wisata" => WisataModel::with(['nilaiKriteriaKlasterisasi', 'nilaiKriteriaPerengkingan'])->get(),
+            "page" => "umkm",
+            "umkm" => UmkmModel::with(['nilaiKriteriaKlasterisasi'])->get(),
         ]);
-        return $this->view->render("pages/panel/admin/wisata");
+        return $this->view->render("pages/panel/admin/umkm");
     }
 
     public function kriteriaKlasterisasi(): string
@@ -48,15 +48,6 @@ class Manage extends BaseController
         return $this->view->render("pages/panel/admin/kriteria-klasterisasi");
     }
 
-    public function kriteriaPerengkingan(): string
-    {
-        $this->view->setData([
-            "page" => "kriteria-perengkingan",
-        ]);
-        return $this->view->render("pages/panel/admin/kriteria-perengkingan");
-    }
-
-    // nilaiKriteriaKlasterisasi
     public function nilaiKriteriaKlasterisasi(): string
     {
         $this->view->setData([
@@ -64,18 +55,6 @@ class Manage extends BaseController
         ]);
         return $this->view->render("pages/panel/admin/nilai-kriteria-klasterisasi");
     }
-
-    // nilaiKriteriaPerengkingan
-    public function nilaiKriteriaPerengkingan(): string
-    {
-        $this->view->setData([
-            "page" => "nilai-kriteria-perengkingan",
-            "nilai-kriteria-perengkingan",
-        ]);
-        return $this->view->render("pages/panel/admin/nilai-kriteria-perengkingan");
-    }
-
-
 
     public function user(): string
     {

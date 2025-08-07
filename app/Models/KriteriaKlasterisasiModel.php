@@ -11,5 +11,11 @@ class KriteriaKlasterisasiModel extends Model
         "id",
         "kode",
         "nama",
+        "deskripsi",
     ];
+
+    public function nilaiKriteria()
+    {
+        return $this->hasMany(NilaiKriteriaKlasterisasiModel::class, 'kriteria_klasterisasi_kode', 'kode');
+    }
 }

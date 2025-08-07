@@ -37,10 +37,6 @@ class Home extends BaseController
             'password' => $this->request->getVar('password'),
         ])->addGroup('user')->activate();
 
-        MahasiswaModel::create([
-            'user_id' => $user->id,
-            'nama' => $this->request->getVar('nama'),
-        ]);
 
         $userModel = new UserModel();
         $loggedUser = $userModel->find($user->id);

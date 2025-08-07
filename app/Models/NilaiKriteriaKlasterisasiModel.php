@@ -10,7 +10,7 @@ class NilaiKriteriaKlasterisasiModel extends Model
     protected $fillable = [
         "id",
         "kriteria_klasterisasi_kode",
-        "wisata_kode",
+        "umkm_kode",
         "nilai",
     ];
 
@@ -19,8 +19,8 @@ class NilaiKriteriaKlasterisasiModel extends Model
         return $this->belongsTo(KriteriaKlasterisasiModel::class, 'kriteria_klasterisasi_kode', 'kode');
     }
 
-    public function wisata()
+    public function umkm()
     {
-        return $this->belongsTo(WisataModel::class, 'wisata_kode', 'kode');
+        return $this->belongsTo(UmkmModel::class, 'umkm_kode', 'kode');
     }
 }

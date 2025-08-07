@@ -6,7 +6,7 @@
 <?= $this->extend('layouts/panel/main') ?>
 <?= $this->section('main') ?>
 
-<h1 class="page-title">Data wisata</h1>
+<h1 class="page-title">Data umkm</h1>
 <div class="page-wrapper">
     <div class="page">
         <div class="container">
@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col s12">
                     <div class="table-wrapper">
-                        <table class="striped highlight responsive-table" id="table-wisata" width="100%">
+                        <table class="striped highlight responsive-table" id="table-umkm" width="100%">
                             <thead>
                             </thead>
                             <tbody>
@@ -36,34 +36,34 @@
 
 <?= $this->section('popup') ?>
 <div class="popup side" data-page="add">
-    <h1>Tambah wisata</h1>
+    <h1>Tambah umkm</h1>
     <br>
     <form id="form-add" class="row" enctype="multipart/form-data">
         <input type="hidden" name="id" id="add-id">
         <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>">
         <div class="input-field col s12">
             <input name="nama" id="add-nama" type="text" class="validate" required>
-            <label for="add-nama">Nama wisata</label>
+            <label for="add-nama">Nama umkm</label>
         </div>
 
         <div class="input-field col s12">
             <input name="kode" id="add-kode" type="text" class="validate" required>
-            <label for="add-kode">Kode wisata</label>
+            <label for="add-kode">Kode umkm</label>
         </div>
 
         <div class="input-field col s12">
             <input name="alamat" id="add-alamat" type="text" class="validate" required>
-            <label for="add-alamat">Alamat wisata</label>
+            <label for="add-alamat">Alamat umkm</label>
         </div>
 
         <div class="input-field col s12">
             <textarea name="deskripsi" id="add-deskripsi" class="materialize-textarea" required></textarea>
-            <label for="add-deskripsi">Deskripsi wisata</label>
+            <label for="add-deskripsi">Deskripsi umkm</label>
         </div>
 
         <div class="input-field col s12">
             <input type="file" name="gambar" id="add-gambar" class="validate" accept="image/*">
-            <label for="add-gambar">Gambar wisata</label>
+            <label for="add-gambar">Gambar umkm</label>
         </div>
 
         <div class="input-field col s6">
@@ -90,7 +90,7 @@
 </div>
 
 <div class="popup side" data-page="edit">
-    <h1>Edit Data wisata</h1>
+    <h1>Edit Data umkm</h1>
     <br>
     <form id="form-edit" class="row" enctype="multipart/form-data">
         <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>">
@@ -98,19 +98,19 @@
 
         <div class="input-field col s12">
             <input name="nama" id="edit-nama" type="text" class="validate" required>
-            <label for="edit-nama">Nama wisata</label>
+            <label for="edit-nama">Nama umkm</label>
         </div>
         <div class="input-field col s12">
             <input name="kode" id="edit-kode" type="text" class="validate" required>
-            <label for="edit-kode">Kode wisata</label>
+            <label for="edit-kode">Kode umkm</label>
         </div>
         <div class="input-field col s12">
             <input name="alamat" id="edit-alamat" type="text" class="validate" required>
-            <label for="edit-alamat">Alamat wisata</label>
+            <label for="edit-alamat">Alamat umkm</label>
         </div>
         <div class="input-field col s12">
             <textarea name="deskripsi" id="edit-deskripsi" class="materialize-textarea" required></textarea>
-            <label for="edit-deskripsi">Deskripsi wisata</label>
+            <label for="edit-deskripsi">Deskripsi umkm</label>
         </div>
         <div class="input-field col s6">
             <input type="text" name="latitude" id="edit-latitude" class="validate" required>
@@ -136,7 +136,7 @@
 
 <div id="modal-map" class="modal modal-fixed-footer">
     <div class="modal-content">
-        <h5>Pilih Lokasi Wisata</h5>
+        <h5>Pilih Lokasi umkm</h5>
 
         <div id="modalMapContainer" style="height: 100%;">
             <div class="map-loading center-align">

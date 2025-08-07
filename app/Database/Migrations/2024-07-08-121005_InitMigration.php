@@ -22,7 +22,7 @@ class InitMigration extends Migration
         });
 
 
-        Eloquent::schema()->create("wisata", function (Blueprint $table) {
+        Eloquent::schema()->create("umkm", function (Blueprint $table) {
             $table->id();
             $table->string("kode")->unique();
             $table->string("nama");
@@ -56,49 +56,16 @@ class InitMigration extends Migration
                 ->on("kriteria_klasterisasi")
                 ->onUpdate("cascade")
                 ->onDelete("cascade");
-            $table->string("wisata_kode");
-            $table->foreign("wisata_kode")
+            $table->string("umkm_kode");
+            $table->foreign("umkm_kode")
                 ->references("kode")
-                ->on("wisata")
+                ->on("umkm")
                 ->onUpdate("cascade")
                 ->onDelete("cascade");
             $table->string("nilai");
             $table->timestamps();
         });
 
-
-        // kriteria_perengkingan
-        Eloquent::schema()->create("kriteria_perengkingan", function (Blueprint $table) {
-            $table->id();
-            $table->string("kode")->unique();
-            $table->string("nama");
-            // weight
-            $table->float("weight")->default(1);
-            // benefit or cost
-            $table->boolean("benefit")->default(true);
-            $table->text("deskripsi")->nullable();
-            $table->timestamps();
-        });
-
-        // nilai_kriteria_perengkingan
-        Eloquent::schema()->create("nilai_kriteria_perengkingan", function (Blueprint
-        $table) {
-            $table->id();
-            $table->string("kriteria_perengkingan_kode");
-            $table->foreign("kriteria_perengkingan_kode")
-                ->references("kode")
-                ->on("kriteria_perengkingan")
-                ->onUpdate("cascade")
-                ->onDelete("cascade");
-            $table->string("wisata_kode");
-            $table->foreign("wisata_kode")
-                ->references("kode")
-                ->on("wisata")
-                ->onUpdate("cascade")
-                ->onDelete("cascade");
-            $table->string("nilai");
-            $table->timestamps();
-        });
     }
 
     public function down()
@@ -108,6 +75,6 @@ class InitMigration extends Migration
         Eloquent::schema()->dropIfExists('nilai_kriteria_klasterisasi');
         Eloquent::schema()->dropIfExists('kriteria_perengkingan');
         Eloquent::schema()->dropIfExists('nilai_kriteria_perengkingan');
-        Eloquent::schema()->dropIfExists('wisata');
+        Eloquent::schema()->dropIfExists('umkm');
     }
 }

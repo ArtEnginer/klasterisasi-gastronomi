@@ -1,11 +1,11 @@
 let table = {};
 
 $(document).ready(function () {
-  // Ambil data wisata & kriteria
+  // Ambil data umkm & kriteria
   $(".modal").modal();
   Promise.all([
-    cloud.add(origin + "/api/wisata", {
-      name: "wisata",
+    cloud.add(origin + "/api/umkm", {
+      name: "umkm",
     }),
     cloud.add(origin + "/api/kriteria-klasterisasi", {
       name: "kriteria-klasterisasi",
@@ -18,7 +18,7 @@ $(document).ready(function () {
         }
       },
     }),
-  ]).then(([wisata, kriteria]) => {
+  ]).then(([umkm, kriteria]) => {
     // Siapkan kolom dinamis untuk DataTable
     let columns = [
       {
@@ -27,7 +27,7 @@ $(document).ready(function () {
         render: (d, t, r, m) => m.row + 1,
       },
       {
-        title: "Wisata",
+        title: "umkm",
         data: "nama",
       },
       {
@@ -73,11 +73,11 @@ $(document).ready(function () {
 $("body").on("click", '[data-target="add"]', function (e) {
   e.preventDefault();
 
-  const wisata = cloud.get("wisata") || [];
+  const umkm = cloud.get("umkm") || [];
   const kriteria = cloud.get("kriteria-klasterisasi") || [];
 
   // Header
-  let headerRow = `<th>WISATA</th>`;
+  let headerRow = `<th>umkm</th>`;
   kriteria.forEach((k) => {
     headerRow += `<th>${k.nama}</th>`;
   });
@@ -85,9 +85,9 @@ $("body").on("click", '[data-target="add"]', function (e) {
 
   // Body
   let bodyRows = "";
-  wisata.forEach((w) => {
+  umkm.forEach((w) => {
     bodyRows += `<tr>`;
-    bodyRows += `<td>${w.nama}<input type="hidden" name="wisata_kode[]" value="${w.kode}"></td>`;
+    bodyRows += `<td>${w.nama}<input type="hidden" name="umkm_kode[]" value="${w.kode}"></td>`;
     kriteria.forEach((k) => {
       bodyRows += `
         <td>
@@ -114,7 +114,7 @@ $("#form-add").on("submit", function (e) {
     success: function () {
       M.toast({ html: "Berhasil disimpan!" });
       cloud.pull("nilai-kriteria-klasterisasi");
-      cloud.pull("wisata");
+      cloud.pull("umkm");
       cloud.pull("kriteria-klasterisasi");
       table.nilai_kriteria_klasterisasi.ajax.reload();
       $(".popup[data-page='add']").removeClass("open");
@@ -127,16 +127,16 @@ $("#form-add").on("submit", function (e) {
 
 $("body").on("click", '[data-action="edit"]', function (e) {
   e.preventDefault();
-  const wisataKode = $(this).data("id");
-  const wisata = cloud.get("wisata").find((w) => w.kode === wisataKode);
+  const umkmKode = $(this).data("id");
+  const umkm = cloud.get("umkm").find((w) => w.kode === umkmKode);
   const kriteria = cloud.get("kriteria-klasterisasi");
 
-  if (!wisata || !kriteria) {
+  if (!umkm || !kriteria) {
     M.toast({ html: "Data tidak ditemukan!" });
     return;
   }
 
-  $("#edit-wisata-kode").val(wisataKode);
+  $("#edit-umkm-kode").val(umkmKode);
 
   // Header
   let headerRow = `<th>Kriteria</th><th>Nilai</th>`;
@@ -144,7 +144,7 @@ $("body").on("click", '[data-action="edit"]', function (e) {
 
   // Mapping nilai berdasarkan kriteria_kode
   const nilaiMap = {};
-  wisata.nilai_kriteria_klasterisasi.forEach((n) => {
+  umkm.nilai_kriteria_klasterisasi.forEach((n) => {
     nilaiMap[n.kriteria_klasterisasi_kode] = n.nilai;
   });
 
@@ -184,7 +184,7 @@ $("#form-edit").on("submit", function (e) {
     success: function () {
       M.toast({ html: "Berhasil diperbarui!" });
       cloud.pull("nilai-kriteria-klasterisasi");
-      cloud.pull("wisata");
+      cloud.pull("umkm");
       cloud.pull("kriteria-klasterisasi");
       table.nilai_kriteria_klasterisasi.ajax.reload();
       $(".popup[data-page='edit']").removeClass("open");
@@ -196,7 +196,7 @@ $("#form-edit").on("submit", function (e) {
 });
 $("body").on("click", '[data-target="clustering"]', function () {
   $.ajax({
-    url: origin + "/api/wisata/clustering",
+    url: origin + "/api/umkm/clustering",
     method: "GET",
     success: function (res) {
       const { log, assignments, normalisasi } = res;

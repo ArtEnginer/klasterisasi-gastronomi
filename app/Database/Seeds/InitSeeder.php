@@ -32,23 +32,13 @@ class InitSeeder extends Seeder
             'password' => "password",
         ])->addGroup('wisatawan')->activate();
 
-        // wisata
-        $this->db->table('wisata')->insertBatch([
+        // umkm
+        $this->db->table('umkm')->insertBatch([
 
-            // Keraton Surakarta Hadiningrat	-75777373	110825335
-            // Pura Mangkunegaran	-75668958	1108203116
-            // Kampung Batik Laweyan	-75696487	1107951318
-            // Masjid Agung Keraton Surakarta	-7574398	1108240187
-            // Taman Balekambang	-75523052	1108050936
-            // Solo Safari	-75646417	110856022
-            // Taman Sriwedari	-75685598	1108104205
-            // The Heritage Palace	-75547544	1107522454
-            // Tumurun Private Museum	-75704012	1108138152
-            // Masjid Raya Sheikh Zayed	-75547278	1108241381
 
             [
                 'kode' => '001',
-                'nama' => 'Keraton Surakarta Hadiningrat',
+                'nama' => 'UMKM Batik Solo',
                 'alamat' => 'Jl. Keraton Surakarta Hadiningrat No. 1',
                 'deskripsi' => 'Keraton Surakarta Hadiningrat adalah istana kerajaan yang kaya akan sejarah dan budaya Jawa.',
                 'gambar' => 'keraton-surakarta.jpg',
@@ -60,7 +50,7 @@ class InitSeeder extends Seeder
 
             [
                 'kode' => '002',
-                'nama' => 'Pura Mangkunegaran',
+                'nama' => 'UMKM Pura Mangkunegaran',
                 'alamat' => 'Jl. Pura Mangkunegaran No. 1',
                 'deskripsi' => 'Pura Mangkunegaran adalah pura yang merupakan tempat tinggal keluarga kerajaan Mangkunegaran.',
                 'gambar' => 'pura-mangkunegaran.jpg',
@@ -71,7 +61,7 @@ class InitSeeder extends Seeder
 
             [
                 'kode' => '003',
-                'nama' => 'Kampung Batik Laweyan',
+                'nama' => 'UMKM Kampung Batik Laweyan',
                 'alamat' => 'Jl. Batik Laweyan No. 1',
                 'deskripsi' => 'Kampung Batik Laweyan adalah kawasan yang terkenal dengan kerajinan batiknya.',
                 'gambar' => 'kampung-batik-laweyan.jpg',
@@ -81,7 +71,7 @@ class InitSeeder extends Seeder
             ],
             [
                 'kode' => '004',
-                'nama' => 'Masjid Agung Keraton Surakarta',
+                'nama' => 'UMKM Masjid Agung Keraton Surakarta',
                 'alamat' => 'Jl. Masjid Agung No. 1',
                 'deskripsi' => 'Masjid Agung Keraton Surakarta adalah masjid yang terletak di kompleks Keraton Surakarta.',
                 'gambar' => 'masjid-agung-keraton-surakarta.jpg',
@@ -91,7 +81,7 @@ class InitSeeder extends Seeder
             ],
             [
                 'kode' => '005',
-                'nama' => 'Taman Balekambang',
+                'nama' => 'UMKM Taman Balekambang',
                 'alamat' => 'Jl. Taman Balekambang No. 1',
                 'deskripsi' => 'Taman Balekambang adalah taman kota yang indah dan cocok untuk bersantai.',
                 'gambar' => 'taman-balekambang.jpg',
@@ -101,7 +91,7 @@ class InitSeeder extends Seeder
             ],
             [
                 'kode' => "006",
-                "nama" => "Solo Safari",
+                "nama" => "UMKM Solo Safari",
                 "alamat" => "Jl. Solo Safari No. 1",
                 "deskripsi" => "Solo Safari adalah taman safari yang menawarkan pengalaman melihat satwa liar secara langsung.",
                 "gambar" => "solo-safari.jpg",
@@ -111,7 +101,7 @@ class InitSeeder extends Seeder
             ],
             [
                 'kode' => "007",
-                "nama" => "Taman Sriwedari",
+                "nama" => "UMKM Taman Sriwedari",
                 "alamat" => "Jl. Taman Sriwedari No. 1",
                 "deskripsi" => "Taman Sriwedari adalah taman yang sering digunakan untuk pertunjukan seni dan budaya.",
                 "gambar" => "taman-sriwedari.jpg",
@@ -121,7 +111,7 @@ class InitSeeder extends Seeder
             ],
             [
                 'kode' => "008",
-                "nama" => "The Heritage Palace",
+                "nama" => "UMKM The Heritage Palace",
                 "alamat" => "Jl. The Heritage Palace No. 1",
                 "deskripsi" => "The Heritage Palace adalah museum yang menampilkan koleksi seni dan budaya Jawa.",
                 "gambar" => "the-heritage-palace.jpg",
@@ -131,7 +121,7 @@ class InitSeeder extends Seeder
             ],
             [
                 'kode' => "009",
-                "nama" => "Tumurun Private Museum",
+                "nama" => "UMKM Tumurun Private Museum",
                 "alamat" => "Jl. Tumurun No. 1",
                 "deskripsi" => "Tumurun Private Museum adalah museum pribadi yang menyimpan koleksi seni yang berharga.",
                 "gambar" => "tumurun-private-museum.jpg",
@@ -141,7 +131,7 @@ class InitSeeder extends Seeder
             ],
             [
                 'kode' => '010',
-                'nama' => 'Masjid Raya Sheikh Zayed',
+                'nama' => 'UMKM Masjid Raya Sheikh Zayed',
                 'alamat' => 'Jl. Masjid Raya Sheikh Zayed No. 1',
                 'deskripsi' => 'Masjid Raya Sheikh Zayed adalah masjid megah yang menjadi salah satu ikon kota.',
                 'gambar' => 'masjid-raya-sheikh-zayed.jpg',
@@ -156,51 +146,682 @@ class InitSeeder extends Seeder
         $this->db->table('kriteria_klasterisasi')->insertBatch([
             [
                 'kode' => 'K001',
-                'nama' => 'Keragaman Keunikan',
-                'deskripsi' => 'Kriteria ini menilai keragaman dan keunikan dari objek wisata.',
+                'nama' => 'Omset',
+                'deskripsi' => 'Pendapatan usaha dalam juta rupiah per bulan',
             ],
             [
                 'kode' => 'K002',
-                'nama' => 'Daya Tarik',
-                'deskripsi' => 'Kriteria ini menilai daya tarik dari objek wisata.',
+                'nama' => 'Modal Awal',
+                'deskripsi' => 'Jumlah modal awal dalam juta rupiah',
             ],
             [
                 'kode' => 'K003',
-                'nama' => 'Nilai Historis / Budaya',
-                'deskripsi' => 'Kriteria ini menilai nilai historis atau budaya dari objek wisata.',
+                'nama' => 'Akses Pembiayaan',
+                'deskripsi' => 'Tingkat akses terhadap pembiayaan (skala 1-5)',
             ],
             [
                 'kode' => 'K004',
-                'nama' => 'Jumlah Pengunjung',
-                'deskripsi' => 'Kriteria ini menilai jumlah pengunjung dari objek wisata.',
+                'nama' => 'Biaya Sertifikasi',
+                'deskripsi' => 'Biaya untuk proses sertifikasi dalam juta rupiah',
             ],
             [
                 'kode' => 'K005',
-                'nama' => 'Popularitas',
-                'deskripsi' => 'Kriteria ini menilai popularitas dari objek wisata.',
+                'nama' => 'Skala Produksi',
+                'deskripsi' => 'Jumlah unit yang diproduksi per bulan',
+            ],
+            [
+                'kode' => 'K006',
+                'nama' => 'Tenaga Kerja',
+                'deskripsi' => 'Jumlah tenaga kerja yang dimiliki',
+            ],
+            [
+                'kode' => 'K007',
+                'nama' => 'Teknologi',
+                'deskripsi' => 'Tingkat penggunaan teknologi (skala 1-5)',
+            ],
+            [
+                'kode' => 'K008',
+                'nama' => 'Segmen Pasar',
+                'deskripsi' => 'Kekuatan segmen pasar (skala 1-5)',
+            ],
+            [
+                'kode' => 'K009',
+                'nama' => 'Distribusi',
+                'deskripsi' => 'Kemampuan distribusi produk (skala 1-5)',
+            ],
+            [
+                'kode' => 'K010',
+                'nama' => 'Jangkauan Pasar',
+                'deskripsi' => 'Luas jangkauan pasar (skala 1-5)',
+            ],
+            [
+                'kode' => 'K011',
+                'nama' => 'Sistem Jaminan Halal',
+                'deskripsi' => 'Kualitas sistem jaminan halal (skala 1-5)',
+            ],
+            [
+                'kode' => 'K012',
+                'nama' => 'Pemahaman Regulasi',
+                'deskripsi' => 'Tingkat pemahaman terhadap regulasi (skala 1-5)',
             ],
         ]);
 
-        $this->db->table('kriteria_perengkingan')->insertBatch([
+        $this->db->table('nilai_kriteria_klasterisasi')->insertBatch([
             [
-                'kode' => 'P001',
-                'nama' => 'Lokasi Strategis',
-                'deskripsi' => 'Kriteria ini menilai lokasi strategis dari objek wisata.',
+                'kriteria_klasterisasi_kode' => 'K001',
+                'umkm_kode' => '001',
+                'nilai' => 50,
             ],
             [
-                'kode' => 'P002',
-                'nama' => 'Fasilitas',
-                'deskripsi' => 'Kriteria ini menilai fasilitas yang tersedia di objek wisata.',
+                'kriteria_klasterisasi_kode' => 'K002',
+                'umkm_kode' => '001',
+                'nilai' => 20,
             ],
             [
-                'kode' => 'P003',
-                'nama' => 'Biaya',
-                'deskripsi' => 'Kriteria ini menilai biaya yang diperlukan untuk mengunjungi objek wisata.',
+                'kriteria_klasterisasi_kode' => 'K003',
+                'umkm_kode' => '001',
+                'nilai' => 4,
             ],
             [
-                'kode' => 'P004',
-                'nama' => 'Keamanan',
-                'deskripsi' => 'Kriteria ini menilai tingkat keamanan di objek wisata.',
+                'kriteria_klasterisasi_kode' => 'K004',
+                'umkm_kode' => '001',
+                'nilai' => 5,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K005',
+                'umkm_kode' => '001',
+                'nilai' => 100,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K006',
+                'umkm_kode' => '001',
+                'nilai' => 10,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K007',
+                'umkm_kode' => '001',
+                'nilai' => 3,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K008',
+                'umkm_kode' => '001',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K009',
+                'umkm_kode' => '001',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K010',
+                'umkm_kode' => '001',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K011',
+                'umkm_kode' => '001',
+                'nilai' => 5,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K012',
+                'umkm_kode' => '001',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'umkm_kode' => '002',
+                'nilai' => 60,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'umkm_kode' => '002',
+                'nilai' => 30,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K003',
+                'umkm_kode' => '002',
+                'nilai' => 5,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'umkm_kode' => '002',
+                'nilai' => 10,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K005',
+                'umkm_kode' => '002',
+                'nilai' => 150,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K006',
+                'umkm_kode' => '002',
+                'nilai' => 15,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K007',
+                'umkm_kode' => '002',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K008',
+                'umkm_kode' => '002',
+                'nilai' => 5,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K009',
+                'umkm_kode' => '002',
+                'nilai' => 5,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K010',
+                'umkm_kode' => '002',
+                'nilai' => 5,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K011',
+                'umkm_kode' => '002',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K012',
+                'umkm_kode' => '002',
+                'nilai' => 5,
+            ],
+
+            // UMKM 003 - Kampung Batik Laweyan
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'umkm_kode' => '003',
+                'nilai' => 45,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'umkm_kode' => '003',
+                'nilai' => 15,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K003',
+                'umkm_kode' => '003',
+                'nilai' => 3,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'umkm_kode' => '003',
+                'nilai' => 8,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K005',
+                'umkm_kode' => '003',
+                'nilai' => 120,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K006',
+                'umkm_kode' => '003',
+                'nilai' => 12,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K007',
+                'umkm_kode' => '003',
+                'nilai' => 3,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K008',
+                'umkm_kode' => '003',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K009',
+                'umkm_kode' => '003',
+                'nilai' => 3,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K010',
+                'umkm_kode' => '003',
+                'nilai' => 3,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K011',
+                'umkm_kode' => '003',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K012',
+                'umkm_kode' => '003',
+                'nilai' => 3,
+            ],
+
+            // UMKM 004 - Masjid Agung Keraton Surakarta
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'umkm_kode' => '004',
+                'nilai' => 35,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'umkm_kode' => '004',
+                'nilai' => 25,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K003',
+                'umkm_kode' => '004',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'umkm_kode' => '004',
+                'nilai' => 7,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K005',
+                'umkm_kode' => '004',
+                'nilai' => 80,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K006',
+                'umkm_kode' => '004',
+                'nilai' => 8,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K007',
+                'umkm_kode' => '004',
+                'nilai' => 2,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K008',
+                'umkm_kode' => '004',
+                'nilai' => 3,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K009',
+                'umkm_kode' => '004',
+                'nilai' => 3,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K010',
+                'umkm_kode' => '004',
+                'nilai' => 3,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K011',
+                'umkm_kode' => '004',
+                'nilai' => 5,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K012',
+                'umkm_kode' => '004',
+                'nilai' => 4,
+            ],
+
+            // UMKM 005 - Taman Balekambang
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'umkm_kode' => '005',
+                'nilai' => 25,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'umkm_kode' => '005',
+                'nilai' => 10,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K003',
+                'umkm_kode' => '005',
+                'nilai' => 2,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'umkm_kode' => '005',
+                'nilai' => 3,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K005',
+                'umkm_kode' => '005',
+                'nilai' => 50,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K006',
+                'umkm_kode' => '005',
+                'nilai' => 5,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K007',
+                'umkm_kode' => '005',
+                'nilai' => 2,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K008',
+                'umkm_kode' => '005',
+                'nilai' => 2,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K009',
+                'umkm_kode' => '005',
+                'nilai' => 2,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K010',
+                'umkm_kode' => '005',
+                'nilai' => 2,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K011',
+                'umkm_kode' => '005',
+                'nilai' => 3,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K012',
+                'umkm_kode' => '005',
+                'nilai' => 2,
+            ],
+
+            // UMKM 006 - Solo Safari
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'umkm_kode' => '006',
+                'nilai' => 80,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'umkm_kode' => '006',
+                'nilai' => 50,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K003',
+                'umkm_kode' => '006',
+                'nilai' => 5,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'umkm_kode' => '006',
+                'nilai' => 15,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K005',
+                'umkm_kode' => '006',
+                'nilai' => 200,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K006',
+                'umkm_kode' => '006',
+                'nilai' => 25,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K007',
+                'umkm_kode' => '006',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K008',
+                'umkm_kode' => '006',
+                'nilai' => 5,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K009',
+                'umkm_kode' => '006',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K010',
+                'umkm_kode' => '006',
+                'nilai' => 5,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K011',
+                'umkm_kode' => '006',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K012',
+                'umkm_kode' => '006',
+                'nilai' => 5,
+            ],
+
+            // UMKM 007 - Taman Sriwedari
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'umkm_kode' => '007',
+                'nilai' => 40,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'umkm_kode' => '007',
+                'nilai' => 18,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K003',
+                'umkm_kode' => '007',
+                'nilai' => 3,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'umkm_kode' => '007',
+                'nilai' => 6,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K005',
+                'umkm_kode' => '007',
+                'nilai' => 90,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K006',
+                'umkm_kode' => '007',
+                'nilai' => 7,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K007',
+                'umkm_kode' => '007',
+                'nilai' => 3,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K008',
+                'umkm_kode' => '007',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K009',
+                'umkm_kode' => '007',
+                'nilai' => 3,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K010',
+                'umkm_kode' => '007',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K011',
+                'umkm_kode' => '007',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K012',
+                'umkm_kode' => '007',
+                'nilai' => 3,
+            ],
+
+            // UMKM 008 - The Heritage Palace
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'umkm_kode' => '008',
+                'nilai' => 70,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'umkm_kode' => '008',
+                'nilai' => 40,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K003',
+                'umkm_kode' => '008',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'umkm_kode' => '008',
+                'nilai' => 12,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K005',
+                'umkm_kode' => '008',
+                'nilai' => 180,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K006',
+                'umkm_kode' => '008',
+                'nilai' => 20,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K007',
+                'umkm_kode' => '008',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K008',
+                'umkm_kode' => '008',
+                'nilai' => 5,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K009',
+                'umkm_kode' => '008',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K010',
+                'umkm_kode' => '008',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K011',
+                'umkm_kode' => '008',
+                'nilai' => 5,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K012',
+                'umkm_kode' => '008',
+                'nilai' => 4,
+            ],
+
+            // UMKM 009 - Tumurun Private Museum
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'umkm_kode' => '009',
+                'nilai' => 55,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'umkm_kode' => '009',
+                'nilai' => 35,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K003',
+                'umkm_kode' => '009',
+                'nilai' => 3,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'umkm_kode' => '009',
+                'nilai' => 9,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K005',
+                'umkm_kode' => '009',
+                'nilai' => 140,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K006',
+                'umkm_kode' => '009',
+                'nilai' => 18,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K007',
+                'umkm_kode' => '009',
+                'nilai' => 3,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K008',
+                'umkm_kode' => '009',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K009',
+                'umkm_kode' => '009',
+                'nilai' => 3,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K010',
+                'umkm_kode' => '009',
+                'nilai' => 3,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K011',
+                'umkm_kode' => '009',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K012',
+                'umkm_kode' => '009',
+                'nilai' => 3,
+            ],
+
+            // UMKM 010 - Masjid Raya Sheikh Zayed
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'umkm_kode' => '010',
+                'nilai' => 65,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'umkm_kode' => '010',
+                'nilai' => 45,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K003',
+                'umkm_kode' => '010',
+                'nilai' => 5,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'umkm_kode' => '010',
+                'nilai' => 12,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K005',
+                'umkm_kode' => '010',
+                'nilai' => 170,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K006',
+                'umkm_kode' => '010',
+                'nilai' => 22,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K007',
+                'umkm_kode' => '010',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K008',
+                'umkm_kode' => '010',
+                'nilai' => 5,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K009',
+                'umkm_kode' => '010',
+                'nilai' => 4,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K010',
+                'umkm_kode' => '010',
+                'nilai' => 5,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K011',
+                'umkm_kode' => '010',
+                'nilai' => 5,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K012',
+                'umkm_kode' => '010',
+                'nilai' => 5,
             ],
         ]);
     }

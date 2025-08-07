@@ -1,11 +1,9 @@
 <?php
 
 use App\Controllers\Api\UserController;
-use App\Controllers\Api\WisataController;
+use App\Controllers\Api\UmkmController;
 use App\Controllers\Api\KriteriaKlasterisasiController;
-use App\Controllers\Api\KriteriaPerengkinganController;
 use App\Controllers\Api\NilaiKriteriaKlasterisasiController;
-use App\Controllers\Api\NilaiKriteriaPerengkinganController;
 use App\Controllers\Api\RecommendationController;
 use App\Controllers\Frontend\Manage;
 use App\Controllers\Migrate;
@@ -29,7 +27,7 @@ $routes->environment('development', static function ($routes) {
 $routes->group('panel', static function (RouteCollection $routes) {
     $routes->get('', [Manage::class, 'index']);
     $routes->get('dashboard', [Manage::class, 'dashboard']);
-    $routes->get('wisata', [Manage::class, 'wisata']);
+    $routes->get('umkm', [Manage::class, 'umkm']);
     $routes->get('kriteria-klasterisasi', [Manage::class, 'kriteriaKlasterisasi']);
     $routes->get('kriteria-perengkingan', [Manage::class, 'kriteriaPerengkingan']);
     $routes->get('nilai-kriteria-klasterisasi', [Manage::class, 'nilaiKriteriaKlasterisasi']);
@@ -43,18 +41,14 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], static function ($
     $routes->group('v2', ['namespace' => 'App\Controllers\Api'], static function ($routes) {
         $routes->get('source/storage/(:any)', 'SourceController::storage/$1');
     });
-    $routes->get('wisata/clustering', [WisataController::class, 'clustering']);
-    $routes->resource('wisata', ['namespace' => '', 'controller' => WisataController::class, 'websafe' => 1]);
+    $routes->get('umkm/clustering', [UmkmController::class, 'clustering']);
+    $routes->resource('umkm', ['namespace' => '', 'controller' => UmkmController::class, 'websafe' => 1]);
     $routes->resource('kriteria-klasterisasi', ['namespace' => '', 'controller' => KriteriaKlasterisasiController::class, 'websafe' => 1]);
-    $routes->resource('kriteria-perengkingan', ['namespace' => '', 'controller' => KriteriaPerengkinganController::class, 'websafe' => 1]);
     $routes->post('nilai-kriteria-klasterisasi', [NilaiKriteriaKlasterisasiController::class, 'store']);
     $routes->post('nilai-kriteria-klasterisasi/update', [NilaiKriteriaKlasterisasiController::class, 'storeupdate']);
     $routes->get('nilai-kriteria-klasterisasi/grouped', [NilaiKriteriaKlasterisasiController::class, 'grouped']);
     $routes->resource('nilai-kriteria-klasterisasi', ['namespace' => '', 'controller' => NilaiKriteriaKlasterisasiController::class, 'websafe' => 1]);
-    $routes->post('nilai-kriteria-perengkingan', [NilaiKriteriaPerengkinganController::class, 'store']);
-    $routes->post('nilai-kriteria-perengkingan/update', [NilaiKriteriaPerengkinganController::class, 'storeupdate']);
-    $routes->get('nilai-kriteria-perengkingan/grouped', [NilaiKriteriaPerengkinganController::class, 'grouped']);
-    $routes->resource('nilai-kriteria-perengkingan', ['namespace' => '', 'controller' => NilaiKriteriaPerengkinganController::class, 'websafe' => 1]);
+
 
 
     $routes->get('/', [RecommendationController::class, 'index']);
