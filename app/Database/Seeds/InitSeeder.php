@@ -32,796 +32,703 @@ class InitSeeder extends Seeder
             'password' => "password",
         ])->addGroup('wisatawan')->activate();
 
-        // gastronomi
         $this->db->table('gastronomi')->insertBatch([
-
-
             [
                 'kode' => '001',
-                'nama' => 'gastronomi Batik Solo',
-                'alamat' => 'Jl. Keraton Surakarta Hadiningrat No. 1',
-                'deskripsi' => 'Keraton Surakarta Hadiningrat adalah istana kerajaan yang kaya akan sejarah dan budaya Jawa.',
-                'gambar' => 'keraton-surakarta.jpg',
+                'nama' => 'Pasar Gede',
+                'alamat' => 'Jl. Pasar Gede No. 1',
+                'deskripsi' => 'Pasar Gede adalah pasar tradisional yang terkenal dengan berbagai makanan khas Solo.',
+                'gambar' => 'pasar-gede.jpg',
                 'latitude' => '-7.5737373',
                 'longitude' => '110.825335',
-                'klaster' =>  null,
+                'klaster' => null,
             ],
-
-
             [
                 'kode' => '002',
-                'nama' => 'gastronomi Pura Mangkunegaran',
-                'alamat' => 'Jl. Pura Mangkunegaran No. 1',
-                'deskripsi' => 'Pura Mangkunegaran adalah pura yang merupakan tempat tinggal keluarga kerajaan Mangkunegaran.',
-                'gambar' => 'pura-mangkunegaran.jpg',
-                'latitude' => '-7.5668958',
-                'longitude' => '110.8203116',
-                'klaster' =>  null,
+                'nama' => 'Gelabo',
+                'alamat' => 'Jl. Urip Sumoharjo No. 88',
+                'deskripsi' => 'Pusat kuliner modern dengan berbagai makanan khas Solo',
+                'gambar' => 'gelabo.jpg',
+                'latitude' => '-7.565892',
+                'longitude' => '110.832456',
+                'klaster' => null,
             ],
-
             [
                 'kode' => '003',
-                'nama' => 'gastronomi Kampung Batik Laweyan',
-                'alamat' => 'Jl. Batik Laweyan No. 1',
-                'deskripsi' => 'Kampung Batik Laweyan adalah kawasan yang terkenal dengan kerajinan batiknya.',
-                'gambar' => 'kampung-batik-laweyan.jpg',
-                'latitude' => '-7.5696487',
-                'longitude' => '110.7951318',
-                'klaster' =>  null,
+                'nama' => 'Pracima Tuin',
+                'alamat' => 'Jl. Slamet Riyadi No. 275',
+                'deskripsi' => 'Restoran dengan konsep taman dan budaya Jawa',
+                'gambar' => 'pracima-tuin.jpg',
+                'latitude' => '-7.560123',
+                'longitude' => '110.805678',
+                'klaster' => null,
             ],
             [
                 'kode' => '004',
-                'nama' => 'gastronomi Masjid Agung Keraton Surakarta',
-                'alamat' => 'Jl. Masjid Agung No. 1',
-                'deskripsi' => 'Masjid Agung Keraton Surakarta adalah masjid yang terletak di kompleks Keraton Surakarta.',
-                'gambar' => 'masjid-agung-keraton-surakarta.jpg',
-                'latitude' => '-7.574398',
-                'longitude' => '110.8240187',
-                'klaster' =>  null,
+                'nama' => 'Ono Solo Ngarsopuro',
+                'alamat' => 'Jl. Diponegoro No. 10',
+                'deskripsi' => 'Kawasan kuliner malam dengan live music',
+                'gambar' => 'ono-solo.jpg',
+                'latitude' => '-7.566789',
+                'longitude' => '110.812345',
+                'klaster' => null,
             ],
             [
                 'kode' => '005',
-                'nama' => 'gastronomi Taman Balekambang',
-                'alamat' => 'Jl. Taman Balekambang No. 1',
-                'deskripsi' => 'Taman Balekambang adalah taman kota yang indah dan cocok untuk bersantai.',
-                'gambar' => 'taman-balekambang.jpg',
-                'latitude' => '-7.5523052',
-                'longitude' => 110.8050936,
-                'klaster' =>  null,
+                'nama' => 'Kusumasari',
+                'alamat' => 'Jl. Kusumasari No. 15',
+                'deskripsi' => 'Tempat makan tradisional dengan suasana Jawa',
+                'gambar' => 'kusumasari.jpg',
+                'latitude' => '-7.572345',
+                'longitude' => '110.818901',
+                'klaster' => null,
             ],
             [
-                'kode' => "006",
-                "nama" => "gastronomi Solo Safari",
-                "alamat" => "Jl. Solo Safari No. 1",
-                "deskripsi" => "Solo Safari adalah taman safari yang menawarkan pengalaman melihat satwa liar secara langsung.",
-                "gambar" => "solo-safari.jpg",
-                "latitude" => "-7.5646417",
-                "longitude" => "110.856022",
-                'klaster' =>  null,
+                'kode' => '006',
+                'nama' => 'Kuliner Balong-Jagalan',
+                'alamat' => 'Jl. Balong, Jagalan',
+                'deskripsi' => 'Kawasan kuliner tradisional di jantung Solo',
+                'gambar' => 'balong-jagalan.jpg',
+                'latitude' => '-7.575678',
+                'longitude' => '110.828901',
+                'klaster' => null,
             ],
             [
-                'kode' => "007",
-                "nama" => "gastronomi Taman Sriwedari",
-                "alamat" => "Jl. Taman Sriwedari No. 1",
-                "deskripsi" => "Taman Sriwedari adalah taman yang sering digunakan untuk pertunjukan seni dan budaya.",
-                "gambar" => "taman-sriwedari.jpg",
-                "latitude" => "-7.5685598",
-                "longitude" => "110.8104205",
-                'klaster' =>  null,
+                'kode' => '007',
+                'nama' => 'Kuliner Gajahan',
+                'alamat' => 'Jl. Gajahan No. 25',
+                'deskripsi' => 'Pusat jajanan tradisional Solo',
+                'gambar' => 'gajahan.jpg',
+                'latitude' => '-7.569012',
+                'longitude' => '110.821234',
+                'klaster' => null,
             ],
             [
-                'kode' => "008",
-                "nama" => "gastronomi The Heritage Palace",
-                "alamat" => "Jl. The Heritage Palace No. 1",
-                "deskripsi" => "The Heritage Palace adalah museum yang menampilkan koleksi seni dan budaya Jawa.",
-                "gambar" => "the-heritage-palace.jpg",
-                "latitude" => "-7.5547544",
-                "longitude" => "110.7522454",
-                'klaster' =>  null,
+                'kode' => '008',
+                'nama' => 'Selat Mbak Lies',
+                'alamat' => 'Jl. Veteran No. 45',
+                'deskripsi' => 'Tempat makan terkenal dengan menu selat solo',
+                'gambar' => 'selat-mbak-lies.jpg',
+                'latitude' => '-7.567890',
+                'longitude' => '110.819876',
+                'klaster' => null,
             ],
             [
-                'kode' => "009",
-                "nama" => "gastronomi Tumurun Private Museum",
-                "alamat" => "Jl. Tumurun No. 1",
-                "deskripsi" => "Tumurun Private Museum adalah museum pribadi yang menyimpan koleksi seni yang berharga.",
-                "gambar" => "tumurun-private-museum.jpg",
-                "latitude" => "-7.5704012",
-                "longitude" => "110.8138152",
-                'klaster' =>  null,
+                'kode' => '009',
+                'nama' => 'Sate Kambing Pak Manto',
+                'alamat' => 'Jl. Adisucipto No. 78',
+                'deskripsi' => 'Tempat makan sate kambing legendaris',
+                'gambar' => 'sate-pak-manto.jpg',
+                'latitude' => '-7.558765',
+                'longitude' => '110.823456',
+                'klaster' => null,
             ],
             [
                 'kode' => '010',
-                'nama' => 'gastronomi Masjid Raya Sheikh Zayed',
-                'alamat' => 'Jl. Masjid Raya Sheikh Zayed No. 1',
-                'deskripsi' => 'Masjid Raya Sheikh Zayed adalah masjid megah yang menjadi salah satu ikon kota.',
-                'gambar' => 'masjid-raya-sheikh-zayed.jpg',
-                'latitude' => '-7.5547278',
-                'longitude' => '110.8241381',
-                'klaster' =>  null,
+                'nama' => 'Kuliner Notosuman',
+                'alamat' => 'Jl. Notosuman No. 30',
+                'deskripsi' => 'Kawasan kuliner dengan berbagai makanan khas',
+                'gambar' => 'notosuman.jpg',
+                'latitude' => '-7.571234',
+                'longitude' => '110.817890',
+                'klaster' => null,
             ],
-
+            [
+                'kode' => '011',
+                'nama' => 'Kuliner Keprabon',
+                'alamat' => 'Jl. Keprabon No. 12',
+                'deskripsi' => 'Tempat makan dengan suasana tradisional',
+                'gambar' => 'keprabon.jpg',
+                'latitude' => '-7.568901',
+                'longitude' => '110.826543',
+                'klaster' => null,
+            ],
+            [
+                'kode' => '012',
+                'nama' => 'Kawasan Manahan',
+                'alamat' => 'Jl. Manahan No. 5',
+                'deskripsi' => 'Area olahraga dengan berbagai kuliner sekitar',
+                'gambar' => 'manahan.jpg',
+                'latitude' => '-7.557812',
+                'longitude' => '110.812345',
+                'klaster' => null,
+            ],
+            [
+                'kode' => '013',
+                'nama' => 'Kuliner Kota Barat',
+                'alamat' => 'Jl. Kota Barat No. 20',
+                'deskripsi' => 'Kawasan kuliner di bagian barat Solo',
+                'gambar' => 'kota-barat.jpg',
+                'latitude' => '-7.563456',
+                'longitude' => '110.798765',
+                'klaster' => null,
+            ],
+            [
+                'kode' => '014',
+                'nama' => 'Pasar Klewer',
+                'alamat' => 'Jl. Dr. Radjiman No. 1',
+                'deskripsi' => 'Pasar tekstil dengan area kuliner tradisional',
+                'gambar' => 'pasar-klewer.jpg',
+                'latitude' => '-7.574321',
+                'longitude' => '110.827654',
+                'klaster' => null,
+            ],
+            [
+                'kode' => '015',
+                'nama' => 'Timlo Sastro Penumping',
+                'alamat' => 'Jl. Penumping No. 15',
+                'deskripsi' => 'Tempat makan terkenal dengan menu timlo',
+                'gambar' => 'timlo-sastro.jpg',
+                'latitude' => '-7.569876',
+                'longitude' => '110.815678',
+                'klaster' => null,
+            ],
+            [
+                'kode' => '016',
+                'nama' => 'Sate Mbok Galak',
+                'alamat' => 'Jl. Yosodipuro No. 33',
+                'deskripsi' => 'Tempat makan sate terkenal di Solo',
+                'gambar' => 'sate-mbok-galak.jpg',
+                'latitude' => '-7.562345',
+                'longitude' => '110.814567',
+                'klaster' => null,
+            ],
+            [
+                'kode' => '017',
+                'nama' => 'Soto Gading',
+                'alamat' => 'Jl. Gading No. 8',
+                'deskripsi' => 'Tempat makan soto khas Solo',
+                'gambar' => 'soto-gading.jpg',
+                'latitude' => '-7.571111',
+                'longitude' => '110.811111',
+                'klaster' => null,
+            ],
+            [
+                'kode' => '018',
+                'nama' => 'Es Krim Tentrem',
+                'alamat' => 'Jl. Tentrem No. 18',
+                'deskripsi' => 'Tempat es krim tradisional legendaris',
+                'gambar' => 'es-tentrem.jpg',
+                'latitude' => '-7.564444',
+                'longitude' => '110.813333',
+                'klaster' => null,
+            ],
+            [
+                'kode' => '019',
+                'nama' => 'Wedangan Mbah Wiryo',
+                'alamat' => 'Jl. Sumpah Pemuda No. 22',
+                'deskripsi' => 'Tempat minum wedang dengan suasana Jawa',
+                'gambar' => 'wedangan-mbah-wiryo.jpg',
+                'latitude' => '-7.566667',
+                'longitude' => '110.816667',
+                'klaster' => null,
+            ],
+            [
+                'kode' => '020',
+                'nama' => 'Bakmi Toprak Yu Nani',
+                'alamat' => 'Jl. Sutan Syahrir No. 7',
+                'deskripsi' => 'Tempat makan bakmi terkenal',
+                'gambar' => 'bakmi-toprak.jpg',
+                'latitude' => '-7.568888',
+                'longitude' => '110.818888',
+                'klaster' => null,
+            ],
+            [
+                'kode' => '021',
+                'nama' => 'Sate Kere Yu Rebi',
+                'alamat' => 'Jl. RE. Martadinata No. 12',
+                'deskripsi' => 'Tempat makan sate kere (ekonomis)',
+                'gambar' => 'sate-kere.jpg',
+                'latitude' => '-7.563333',
+                'longitude' => '110.820000',
+                'klaster' => null,
+            ]
         ]);
-
 
         $this->db->table('kriteria_klasterisasi')->insertBatch([
             [
                 'kode' => 'K001',
-                'nama' => 'Omset',
-                'deskripsi' => 'Pendapatan usaha dalam juta rupiah per bulan',
+                'nama' => 'KULINER',
+                'deskripsi' => 'Kualitas kuliner yang ditawarkan',
             ],
             [
                 'kode' => 'K002',
-                'nama' => 'Modal Awal',
-                'deskripsi' => 'Jumlah modal awal dalam juta rupiah',
+                'nama' => 'BUDAYA',
+                'deskripsi' => 'Nilai-nilai budaya yang diusung oleh produk',
             ],
             [
                 'kode' => 'K003',
-                'nama' => 'Akses Pembiayaan',
-                'deskripsi' => 'Tingkat akses terhadap pembiayaan (skala 1-5)',
+                'nama' => 'EKONOMI',
+                'deskripsi' => 'Aspek ekonomi yang mempengaruhi produk',
             ],
             [
                 'kode' => 'K004',
-                'nama' => 'Biaya Sertifikasi',
-                'deskripsi' => 'Biaya untuk proses sertifikasi dalam juta rupiah',
-            ],
-            [
-                'kode' => 'K005',
-                'nama' => 'Skala Produksi',
-                'deskripsi' => 'Jumlah unit yang diproduksi per bulan',
-            ],
-            [
-                'kode' => 'K006',
-                'nama' => 'Tenaga Kerja',
-                'deskripsi' => 'Jumlah tenaga kerja yang dimiliki',
-            ],
-            [
-                'kode' => 'K007',
-                'nama' => 'Teknologi',
-                'deskripsi' => 'Tingkat penggunaan teknologi (skala 1-5)',
-            ],
-            [
-                'kode' => 'K008',
-                'nama' => 'Segmen Pasar',
-                'deskripsi' => 'Kekuatan segmen pasar (skala 1-5)',
-            ],
-            [
-                'kode' => 'K009',
-                'nama' => 'Distribusi',
-                'deskripsi' => 'Kemampuan distribusi produk (skala 1-5)',
-            ],
-            [
-                'kode' => 'K010',
-                'nama' => 'Jangkauan Pasar',
-                'deskripsi' => 'Luas jangkauan pasar (skala 1-5)',
-            ],
-            [
-                'kode' => 'K011',
-                'nama' => 'Sistem Jaminan Halal',
-                'deskripsi' => 'Kualitas sistem jaminan halal (skala 1-5)',
-            ],
-            [
-                'kode' => 'K012',
-                'nama' => 'Pemahaman Regulasi',
-                'deskripsi' => 'Tingkat pemahaman terhadap regulasi (skala 1-5)',
+                'nama' => 'INFRASTRUKTUR',
+                'deskripsi' => 'Bentuk dan kondisi infrastruktur yang mendukung produk',
             ],
         ]);
 
         $this->db->table('nilai_kriteria_klasterisasi')->insertBatch([
+            // Pasar Gede
             [
                 'kriteria_klasterisasi_kode' => 'K001',
-                'gastronomi_kode' => '001',
-                'nilai' => 50,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K002',
-                'gastronomi_kode' => '001',
-                'nilai' => 20,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K003',
-                'gastronomi_kode' => '001',
-                'nilai' => 4,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K004',
-                'gastronomi_kode' => '001',
-                'nilai' => 5,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K005',
-                'gastronomi_kode' => '001',
-                'nilai' => 100,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K006',
                 'gastronomi_kode' => '001',
                 'nilai' => 10,
             ],
             [
-                'kriteria_klasterisasi_kode' => 'K007',
-                'gastronomi_kode' => '001',
-                'nilai' => 3,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K008',
-                'gastronomi_kode' => '001',
-                'nilai' => 4,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K009',
-                'gastronomi_kode' => '001',
-                'nilai' => 4,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K010',
-                'gastronomi_kode' => '001',
-                'nilai' => 4,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K011',
-                'gastronomi_kode' => '001',
-                'nilai' => 5,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K012',
-                'gastronomi_kode' => '001',
-                'nilai' => 4,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K001',
-                'gastronomi_kode' => '002',
-                'nilai' => 60,
-            ],
-            [
                 'kriteria_klasterisasi_kode' => 'K002',
-                'gastronomi_kode' => '002',
-                'nilai' => 30,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K003',
-                'gastronomi_kode' => '002',
-                'nilai' => 5,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K004',
-                'gastronomi_kode' => '002',
+                'gastronomi_kode' => '001',
                 'nilai' => 10,
             ],
             [
-                'kriteria_klasterisasi_kode' => 'K005',
-                'gastronomi_kode' => '002',
-                'nilai' => 150,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K006',
-                'gastronomi_kode' => '002',
-                'nilai' => 15,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K007',
-                'gastronomi_kode' => '002',
-                'nilai' => 4,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K008',
-                'gastronomi_kode' => '002',
-                'nilai' => 5,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K009',
-                'gastronomi_kode' => '002',
-                'nilai' => 5,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K010',
-                'gastronomi_kode' => '002',
-                'nilai' => 5,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K011',
-                'gastronomi_kode' => '002',
-                'nilai' => 4,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K012',
-                'gastronomi_kode' => '002',
-                'nilai' => 5,
-            ],
-
-            // gastronomi 003 - Kampung Batik Laweyan
-            [
-                'kriteria_klasterisasi_kode' => 'K001',
-                'gastronomi_kode' => '003',
-                'nilai' => 45,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K002',
-                'gastronomi_kode' => '003',
-                'nilai' => 15,
-            ],
-            [
                 'kriteria_klasterisasi_kode' => 'K003',
-                'gastronomi_kode' => '003',
-                'nilai' => 3,
+                'gastronomi_kode' => '001',
+                'nilai' => 10,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K004',
-                'gastronomi_kode' => '003',
-                'nilai' => 8,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K005',
-                'gastronomi_kode' => '003',
-                'nilai' => 120,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K006',
-                'gastronomi_kode' => '003',
-                'nilai' => 12,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K007',
-                'gastronomi_kode' => '003',
-                'nilai' => 3,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K008',
-                'gastronomi_kode' => '003',
-                'nilai' => 4,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K009',
-                'gastronomi_kode' => '003',
-                'nilai' => 3,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K010',
-                'gastronomi_kode' => '003',
-                'nilai' => 3,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K011',
-                'gastronomi_kode' => '003',
-                'nilai' => 4,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K012',
-                'gastronomi_kode' => '003',
-                'nilai' => 3,
+                'gastronomi_kode' => '001',
+                'nilai' => 10,
             ],
 
-            // gastronomi 004 - Masjid Agung Keraton Surakarta
+            // Gelabo
             [
                 'kriteria_klasterisasi_kode' => 'K001',
-                'gastronomi_kode' => '004',
-                'nilai' => 35,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K002',
-                'gastronomi_kode' => '004',
-                'nilai' => 25,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K003',
-                'gastronomi_kode' => '004',
-                'nilai' => 4,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K004',
-                'gastronomi_kode' => '004',
+                'gastronomi_kode' => '002',
                 'nilai' => 7,
             ],
             [
-                'kriteria_klasterisasi_kode' => 'K005',
-                'gastronomi_kode' => '004',
-                'nilai' => 80,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K006',
-                'gastronomi_kode' => '004',
-                'nilai' => 8,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K007',
-                'gastronomi_kode' => '004',
-                'nilai' => 2,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K008',
-                'gastronomi_kode' => '004',
-                'nilai' => 3,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K009',
-                'gastronomi_kode' => '004',
-                'nilai' => 3,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K010',
-                'gastronomi_kode' => '004',
-                'nilai' => 3,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K011',
-                'gastronomi_kode' => '004',
-                'nilai' => 5,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K012',
-                'gastronomi_kode' => '004',
-                'nilai' => 4,
-            ],
-
-            // gastronomi 005 - Taman Balekambang
-            [
-                'kriteria_klasterisasi_kode' => 'K001',
-                'gastronomi_kode' => '005',
-                'nilai' => 25,
-            ],
-            [
                 'kriteria_klasterisasi_kode' => 'K002',
-                'gastronomi_kode' => '005',
-                'nilai' => 10,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K003',
-                'gastronomi_kode' => '005',
-                'nilai' => 2,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K004',
-                'gastronomi_kode' => '005',
-                'nilai' => 3,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K005',
-                'gastronomi_kode' => '005',
-                'nilai' => 50,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K006',
-                'gastronomi_kode' => '005',
-                'nilai' => 5,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K007',
-                'gastronomi_kode' => '005',
-                'nilai' => 2,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K008',
-                'gastronomi_kode' => '005',
-                'nilai' => 2,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K009',
-                'gastronomi_kode' => '005',
-                'nilai' => 2,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K010',
-                'gastronomi_kode' => '005',
-                'nilai' => 2,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K011',
-                'gastronomi_kode' => '005',
-                'nilai' => 3,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K012',
-                'gastronomi_kode' => '005',
-                'nilai' => 2,
-            ],
-
-            // gastronomi 006 - Solo Safari
-            [
-                'kriteria_klasterisasi_kode' => 'K001',
-                'gastronomi_kode' => '006',
-                'nilai' => 80,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K002',
-                'gastronomi_kode' => '006',
-                'nilai' => 50,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K003',
-                'gastronomi_kode' => '006',
-                'nilai' => 5,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K004',
-                'gastronomi_kode' => '006',
-                'nilai' => 15,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K005',
-                'gastronomi_kode' => '006',
-                'nilai' => 200,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K006',
-                'gastronomi_kode' => '006',
-                'nilai' => 25,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K007',
-                'gastronomi_kode' => '006',
-                'nilai' => 4,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K008',
-                'gastronomi_kode' => '006',
-                'nilai' => 5,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K009',
-                'gastronomi_kode' => '006',
-                'nilai' => 4,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K010',
-                'gastronomi_kode' => '006',
-                'nilai' => 5,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K011',
-                'gastronomi_kode' => '006',
-                'nilai' => 4,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K012',
-                'gastronomi_kode' => '006',
-                'nilai' => 5,
-            ],
-
-            // gastronomi 007 - Taman Sriwedari
-            [
-                'kriteria_klasterisasi_kode' => 'K001',
-                'gastronomi_kode' => '007',
-                'nilai' => 40,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K002',
-                'gastronomi_kode' => '007',
-                'nilai' => 18,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K003',
-                'gastronomi_kode' => '007',
-                'nilai' => 3,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K004',
-                'gastronomi_kode' => '007',
+                'gastronomi_kode' => '002',
                 'nilai' => 6,
             ],
             [
-                'kriteria_klasterisasi_kode' => 'K005',
-                'gastronomi_kode' => '007',
-                'nilai' => 90,
+                'kriteria_klasterisasi_kode' => 'K003',
+                'gastronomi_kode' => '002',
+                'nilai' => 8,
             ],
             [
-                'kriteria_klasterisasi_kode' => 'K006',
+                'kriteria_klasterisasi_kode' => 'K004',
+                'gastronomi_kode' => '002',
+                'nilai' => 8,
+            ],
+
+            // Pracima Tuin
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'gastronomi_kode' => '003',
+                'nilai' => 7,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'gastronomi_kode' => '003',
+                'nilai' => 10,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K003',
+                'gastronomi_kode' => '003',
+                'nilai' => 8,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'gastronomi_kode' => '003',
+                'nilai' => 10,
+            ],
+
+            // Ono Solo Ngarsopuro
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'gastronomi_kode' => '004',
+                'nilai' => 7,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'gastronomi_kode' => '004',
+                'nilai' => 6,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K003',
+                'gastronomi_kode' => '004',
+                'nilai' => 7,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'gastronomi_kode' => '004',
+                'nilai' => 10,
+            ],
+
+            // Kusumasari
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'gastronomi_kode' => '005',
+                'nilai' => 9,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'gastronomi_kode' => '005',
+                'nilai' => 6,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K003',
+                'gastronomi_kode' => '005',
+                'nilai' => 9,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'gastronomi_kode' => '005',
+                'nilai' => 10,
+            ],
+
+            // Kuliner Balong-Jagalan
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'gastronomi_kode' => '006',
+                'nilai' => 9,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'gastronomi_kode' => '006',
+                'nilai' => 9,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K003',
+                'gastronomi_kode' => '006',
+                'nilai' => 8,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'gastronomi_kode' => '006',
+                'nilai' => 8,
+            ],
+
+            // Kuliner Gajahan
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
                 'gastronomi_kode' => '007',
                 'nilai' => 7,
             ],
             [
-                'kriteria_klasterisasi_kode' => 'K007',
+                'kriteria_klasterisasi_kode' => 'K002',
                 'gastronomi_kode' => '007',
-                'nilai' => 3,
+                'nilai' => 7,
             ],
             [
-                'kriteria_klasterisasi_kode' => 'K008',
+                'kriteria_klasterisasi_kode' => 'K003',
                 'gastronomi_kode' => '007',
-                'nilai' => 4,
+                'nilai' => 7,
             ],
             [
-                'kriteria_klasterisasi_kode' => 'K009',
+                'kriteria_klasterisasi_kode' => 'K004',
                 'gastronomi_kode' => '007',
-                'nilai' => 3,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K010',
-                'gastronomi_kode' => '007',
-                'nilai' => 4,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K011',
-                'gastronomi_kode' => '007',
-                'nilai' => 4,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K012',
-                'gastronomi_kode' => '007',
-                'nilai' => 3,
+                'nilai' => 7,
             ],
 
-            // gastronomi 008 - The Heritage Palace
+            // Selat Mbak Lies
             [
                 'kriteria_klasterisasi_kode' => 'K001',
                 'gastronomi_kode' => '008',
-                'nilai' => 70,
+                'nilai' => 7,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K002',
                 'gastronomi_kode' => '008',
-                'nilai' => 40,
+                'nilai' => 6,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K003',
                 'gastronomi_kode' => '008',
-                'nilai' => 4,
+                'nilai' => 7,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K004',
                 'gastronomi_kode' => '008',
-                'nilai' => 12,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K005',
-                'gastronomi_kode' => '008',
-                'nilai' => 180,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K006',
-                'gastronomi_kode' => '008',
-                'nilai' => 20,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K007',
-                'gastronomi_kode' => '008',
-                'nilai' => 4,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K008',
-                'gastronomi_kode' => '008',
-                'nilai' => 5,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K009',
-                'gastronomi_kode' => '008',
-                'nilai' => 4,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K010',
-                'gastronomi_kode' => '008',
-                'nilai' => 4,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K011',
-                'gastronomi_kode' => '008',
-                'nilai' => 5,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K012',
-                'gastronomi_kode' => '008',
-                'nilai' => 4,
+                'nilai' => 8,
             ],
 
-            // gastronomi 009 - Tumurun Private Museum
+            // Sate Kambing Pak Manto
             [
                 'kriteria_klasterisasi_kode' => 'K001',
                 'gastronomi_kode' => '009',
-                'nilai' => 55,
+                'nilai' => 8,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K002',
                 'gastronomi_kode' => '009',
-                'nilai' => 35,
+                'nilai' => 5,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K003',
                 'gastronomi_kode' => '009',
-                'nilai' => 3,
+                'nilai' => 8,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K004',
                 'gastronomi_kode' => '009',
+                'nilai' => 8,
+            ],
+
+            // Kuliner Notosuman
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'gastronomi_kode' => '010',
                 'nilai' => 9,
             ],
             [
-                'kriteria_klasterisasi_kode' => 'K005',
-                'gastronomi_kode' => '009',
-                'nilai' => 140,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K006',
-                'gastronomi_kode' => '009',
-                'nilai' => 18,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K007',
-                'gastronomi_kode' => '009',
-                'nilai' => 3,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K008',
-                'gastronomi_kode' => '009',
-                'nilai' => 4,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K009',
-                'gastronomi_kode' => '009',
-                'nilai' => 3,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K010',
-                'gastronomi_kode' => '009',
-                'nilai' => 3,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K011',
-                'gastronomi_kode' => '009',
-                'nilai' => 4,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K012',
-                'gastronomi_kode' => '009',
-                'nilai' => 3,
-            ],
-
-            // gastronomi 010 - Masjid Raya Sheikh Zayed
-            [
-                'kriteria_klasterisasi_kode' => 'K001',
-                'gastronomi_kode' => '010',
-                'nilai' => 65,
-            ],
-            [
                 'kriteria_klasterisasi_kode' => 'K002',
                 'gastronomi_kode' => '010',
-                'nilai' => 45,
+                'nilai' => 9,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K003',
                 'gastronomi_kode' => '010',
-                'nilai' => 5,
+                'nilai' => 9,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K004',
                 'gastronomi_kode' => '010',
-                'nilai' => 12,
+                'nilai' => 8,
+            ],
+
+            // Kuliner Keprabon
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'gastronomi_kode' => '011',
+                'nilai' => 8,
             ],
             [
-                'kriteria_klasterisasi_kode' => 'K005',
-                'gastronomi_kode' => '010',
-                'nilai' => 170,
+                'kriteria_klasterisasi_kode' => 'K002',
+                'gastronomi_kode' => '011',
+                'nilai' => 7,
             ],
             [
-                'kriteria_klasterisasi_kode' => 'K006',
-                'gastronomi_kode' => '010',
-                'nilai' => 22,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K007',
-                'gastronomi_kode' => '010',
-                'nilai' => 4,
-            ],
-            [
-                'kriteria_klasterisasi_kode' => 'K008',
-                'gastronomi_kode' => '010',
+                'kriteria_klasterisasi_kode' => 'K003',
+                'gastronomi_kode' => '011',
                 'nilai' => 5,
             ],
             [
-                'kriteria_klasterisasi_kode' => 'K009',
-                'gastronomi_kode' => '010',
-                'nilai' => 4,
+                'kriteria_klasterisasi_kode' => 'K004',
+                'gastronomi_kode' => '011',
+                'nilai' => 8,
+            ],
+
+            // Kawasan Manahan
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'gastronomi_kode' => '012',
+                'nilai' => 7,
             ],
             [
-                'kriteria_klasterisasi_kode' => 'K010',
-                'gastronomi_kode' => '010',
+                'kriteria_klasterisasi_kode' => 'K002',
+                'gastronomi_kode' => '012',
                 'nilai' => 5,
             ],
             [
-                'kriteria_klasterisasi_kode' => 'K011',
-                'gastronomi_kode' => '010',
+                'kriteria_klasterisasi_kode' => 'K003',
+                'gastronomi_kode' => '012',
+                'nilai' => 7,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'gastronomi_kode' => '012',
+                'nilai' => 7,
+            ],
+
+            // Kuliner Kota Barat
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'gastronomi_kode' => '013',
+                'nilai' => 7,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'gastronomi_kode' => '013',
                 'nilai' => 5,
             ],
             [
-                'kriteria_klasterisasi_kode' => 'K012',
-                'gastronomi_kode' => '010',
+                'kriteria_klasterisasi_kode' => 'K003',
+                'gastronomi_kode' => '013',
+                'nilai' => 6,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'gastronomi_kode' => '013',
+                'nilai' => 9,
+            ],
+
+            // Pasar Klewer
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'gastronomi_kode' => '014',
+                'nilai' => 8,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'gastronomi_kode' => '014',
                 'nilai' => 5,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K003',
+                'gastronomi_kode' => '014',
+                'nilai' => 6,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'gastronomi_kode' => '014',
+                'nilai' => 9,
+            ],
+
+            // Timlo Sastro Penumping
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'gastronomi_kode' => '015',
+                'nilai' => 8,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'gastronomi_kode' => '015',
+                'nilai' => 8,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K003',
+                'gastronomi_kode' => '015',
+                'nilai' => 8,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'gastronomi_kode' => '015',
+                'nilai' => 9,
+            ],
+
+            // Sate Mbok Galak
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'gastronomi_kode' => '016',
+                'nilai' => 8,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'gastronomi_kode' => '016',
+                'nilai' => 6,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K003',
+                'gastronomi_kode' => '016',
+                'nilai' => 8,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'gastronomi_kode' => '016',
+                'nilai' => 9,
+            ],
+
+            // Soto Gading
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'gastronomi_kode' => '017',
+                'nilai' => 6,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'gastronomi_kode' => '017',
+                'nilai' => 5,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K003',
+                'gastronomi_kode' => '017',
+                'nilai' => 5,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'gastronomi_kode' => '017',
+                'nilai' => 7,
+            ],
+
+            // Es Krim Tentrem
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'gastronomi_kode' => '018',
+                'nilai' => 8,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'gastronomi_kode' => '018',
+                'nilai' => 6,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K003',
+                'gastronomi_kode' => '018',
+                'nilai' => 7,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'gastronomi_kode' => '018',
+                'nilai' => 9,
+            ],
+
+            // Wedangan Mbah Wiryo
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'gastronomi_kode' => '019',
+                'nilai' => 9,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'gastronomi_kode' => '019',
+                'nilai' => 10,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K003',
+                'gastronomi_kode' => '019',
+                'nilai' => 9,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'gastronomi_kode' => '019',
+                'nilai' => 8,
+            ],
+
+            // Bakmi Toprak Yu Nani
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'gastronomi_kode' => '020',
+                'nilai' => 7,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'gastronomi_kode' => '020',
+                'nilai' => 7,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K003',
+                'gastronomi_kode' => '020',
+                'nilai' => 7,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'gastronomi_kode' => '020',
+                'nilai' => 6,
+            ],
+
+            // Sate Kere Yu Rebi
+            [
+                'kriteria_klasterisasi_kode' => 'K001',
+                'gastronomi_kode' => '021',
+                'nilai' => 9,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K002',
+                'gastronomi_kode' => '021',
+                'nilai' => 8,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K003',
+                'gastronomi_kode' => '021',
+                'nilai' => 5,
+            ],
+            [
+                'kriteria_klasterisasi_kode' => 'K004',
+                'gastronomi_kode' => '021',
+                'nilai' => 7,
             ],
         ]);
     }

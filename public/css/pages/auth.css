@@ -1,10 +1,18 @@
+:root {
+  --gastronomy-primary: #d32f2f;
+  --gastronomy-secondary: #ff6f00;
+  --gastronomy-accent: #2e7d32;
+  --gastronomy-light: #fff8e1;
+  --gastronomy-dark: #3e2723;
+}
+
 .parent-wrapper {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  background-color: white;
+  background: linear-gradient(135deg, var(--gastronomy-light) 0%, #fafafa 100%);
 }
 
 .nav-btn {
@@ -13,19 +21,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.5rem;
   gap: 0.5rem;
   border-radius: 2rem;
-  background-color: transparent;
-  border: 2px solid var(--primary);
-  color: var(--primary);
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid var(--gastronomy-primary);
+  color: var(--gastronomy-primary);
   transition: all 0.3s ease;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
 }
 
 .nav-btn:hover {
-  background-color: var(--primary);
-  border: 2px solid transparent;
+  background: var(--gastronomy-primary);
+  border: 2px solid var(--gastronomy-primary);
   color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
 }
 
 .nav-btn span {
@@ -46,7 +58,70 @@
   align-items: center;
   flex: 1;
   height: 100%;
-  background-color: white;
+  background: linear-gradient(45deg, var(--gastronomy-primary), var(--gastronomy-secondary));
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+      rgba(211, 47, 47, 0.8) 0%,
+      rgba(255, 111, 0, 0.6) 50%,
+      rgba(46, 125, 50, 0.8) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.hero-content {
+  text-align: center;
+  color: white;
+  padding: 2rem;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.hero-features {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  min-width: 120px;
+}
+
+.feature-item i {
+  font-size: 2rem;
+}
+
+.feature-item span {
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .parent-wrapper .hero-wrapper .hero {
@@ -63,8 +138,9 @@
   gap: 2rem;
   height: 100%;
   width: 100%;
-  max-width: 35rem;
-  background: var(--primary-dark);
+  max-width: 40rem;
+  background: linear-gradient(135deg, var(--gastronomy-dark) 0%, #5d4037 100%);
+  padding: 2rem;
 }
 
 .parent-wrapper .content-wrapper .logo {
@@ -77,28 +153,69 @@
   display: flex;
   flex-direction: column;
   width: 90%;
-  padding: 2rem 1rem;
-  border-radius: 0.5rem;
-  background-color: white;
-  max-height: 80%;
-  box-shadow: 0 0.5rem 1rem 4px rgba(0, 0, 0, 0.3);
+  padding: 2.5rem 2rem;
+  border-radius: 1rem;
+  background: white;
+  max-height: 90%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.parent-wrapper .content-wrapper .auth-card .title {
+.auth-header {
   text-align: center;
-  text-transform: uppercase;
-  font-size: 1.25rem;
-  font-weight: bold;
+  margin-bottom: 1.5rem;
 }
 
-.parent-wrapper .content-wrapper .auth-card .title::after {
-  content: "";
-  position: relative;
-  display: block;
-  width: 5rem;
-  height: 0.25rem;
-  margin: 0.5rem auto;
-  background-color: var(--primary-color);
+.auth-logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.auth-card .title {
+  color: var(--gastronomy-primary);
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.auth-card .subtitle {
+  color: var(--gastronomy-secondary);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.auth-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gastronomy-primary), var(--gastronomy-secondary));
+  margin: 1rem auto;
+  border-radius: 2px;
+}
+
+.login-title {
+  color: var(--gastronomy-dark);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.auth-footer {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.auth-footer p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
 }
 
 .parent-wrapper .content-wrapper .auth-card .card-body {
@@ -106,17 +223,52 @@
   width: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+  padding-top: 1rem;
 }
 
 .auth-card .btn-auth {
-  margin: 0.5rem 0;
+  margin: 1rem 0;
   width: 100%;
   border-radius: 2rem;
-  background: var(--primary-gradient);
+  background: linear-gradient(135deg, var(--gastronomy-primary) 0%, var(--gastronomy-secondary) 100%);
+  box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+  font-weight: 600;
+  text-transform: none;
+  padding: 12px 24px;
+  transition: all 0.3s ease;
+}
+
+.auth-card .btn-auth:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4);
 }
 
 .auth-card .btn-auth.disabled {
-  background: none;
+  background: #ccc;
+  box-shadow: none;
+}
+
+/* Enhanced input styling */
+.input-field label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.input-field label i {
+  font-size: 1.2rem;
+  color: var(--gastronomy-primary);
+}
+
+.input-field input[type=email]:focus+label,
+.input-field input[type=password]:focus+label {
+  color: var(--gastronomy-primary) !important;
+}
+
+.input-field input[type=email]:focus,
+.input-field input[type=password]:focus {
+  border-bottom: 1px solid var(--gastronomy-primary) !important;
+  box-shadow: 0 1px 0 0 var(--gastronomy-primary) !important;
 }
 
 .auth-hero {
@@ -131,6 +283,57 @@
   .parent-wrapper .hero-wrapper {
     display: flex;
   }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.4rem;
+  }
+
+  .feature-item {
+    min-width: 140px;
+  }
 }
 
-@media only screen and (min-width: 992px) {}
+@media only screen and (min-width: 992px) {
+  .auth-card .title {
+    font-size: 2.2rem;
+  }
+
+  .auth-card .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero-features {
+    gap: 3rem;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-features {
+    gap: 1rem;
+  }
+
+  .feature-item {
+    min-width: 100px;
+    padding: 0.8rem;
+  }
+
+  .auth-card .title {
+    font-size: 1.5rem;
+  }
+
+  .auth-card .subtitle {
+    font-size: 0.9rem;
+  }
+}
