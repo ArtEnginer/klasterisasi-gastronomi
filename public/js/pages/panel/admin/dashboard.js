@@ -167,7 +167,7 @@ $(document).ready(function () {
     let content = `<b>${item.nama}</b><br>${item.deskripsi || ""}`;
 
     if (item.klaster !== undefined) {
-      const clusterNames = ["Rendah", "Sedang", "Tinggi"];
+      const clusterNames = ["Sangat Bagus", "Cukup Bagus", "Kurang Bagus"];
       content += `<br><b>Klaster:</b> ${
         clusterNames[item.klaster] || item.klaster
       }`;
@@ -436,7 +436,7 @@ $(document).ready(function () {
 
   // Show cluster results with detailed steps
   function showClusterResults(result) {
-    const clusterNames = ["Tinggi", "Sedang", "Rendah"];
+    const clusterNames = ["Sangat Bagus", "Cukup Bagus", "Kurang Bagus"];
     const clusterCounts = Array(result.centroids.length).fill(0);
 
     result.clusters.forEach((c) => clusterCounts[c]++);
