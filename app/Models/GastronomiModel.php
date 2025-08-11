@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UmkmModel extends Model
+class GastronomiModel extends Model
 {
-    protected $table = 'umkm';
+    protected $table = 'gastronomi';
     protected $fillable = [
         "id",
         "kode",
@@ -23,7 +23,7 @@ class UmkmModel extends Model
     // Relasi dengan eager loading untuk mendapatkan nilai beserta kriteria
     public function nilaiKriteriaKlasterisasi()
     {
-        return $this->hasMany(NilaiKriteriaKlasterisasiModel::class, 'umkm_kode', 'kode')
+        return $this->hasMany(NilaiKriteriaKlasterisasiModel::class, 'gastronomi_kode', 'kode')
             ->with('kriteriaKlasterisasi');
     }
 }

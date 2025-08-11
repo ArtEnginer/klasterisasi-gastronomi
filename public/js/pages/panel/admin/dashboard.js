@@ -5,9 +5,8 @@ $(document).ready(function () {
 
   let map;
   let markers = [];
-  let umkmData = [];
+  let gastronomiData = [];
   let klasterisasiCriteria = [];
-  let geocoder;
 
   // Initialize map with OpenStreetMap and Nominatim for geocoding
   function initMap() {
@@ -60,8 +59,8 @@ $(document).ready(function () {
     $("ul.tabs").on("click", "a", function () {
       setTimeout(() => {
         map.invalidateSize();
-        if (umkmData.length > 0) {
-          plotumkmOnMap(umkmData);
+        if (gastronomiData.length > 0) {
+          plotgastronomiOnMap(gastronomiData);
         }
       }, 100);
     });
@@ -89,15 +88,15 @@ $(document).ready(function () {
   // Load data
   function loadData() {
     cloud
-      .add(origin + "/api/umkm", {
-        name: "umkm",
+      .add(origin + "/api/gastronomi", {
+        name: "gastronomi",
       })
-      .then((umkm) => {
-        umkmData = umkm;
-        console.log("umkm data loaded", umkm);
-        plotumkmOnMap(umkm);
+      .then((gastronomi) => {
+        gastronomiData = gastronomi;
+        console.log("gastronomi data loaded", gastronomi);
+        plotgastronomiOnMap(gastronomi);
       })
-      .catch((error) => console.error("Error loading UMKM data:", error));
+      .catch((error) => console.error("Error loading gastronomi data:", error));
 
     cloud
       .add(origin + "/api/kriteria-klasterisasi", {
@@ -110,9 +109,9 @@ $(document).ready(function () {
       .catch((error) => console.error("Error loading criteria data:", error));
   }
 
-  // Plot umkm on map with cluster colors
-  function plotumkmOnMap(umkm) {
-    if (!map || !umkm || umkm.length === 0) return;
+  // Plot gastronomi on map with cluster colors
+  function plotgastronomiOnMap(gastronomi) {
+    if (!map || !gastronomi || gastronomi.length === 0) return;
 
     // Clear existing markers
     clearMarkers();
@@ -126,8 +125,8 @@ $(document).ready(function () {
       "#FF00FF",
     ]; // Red, Green, Blue, Yellow, Purple
 
-    // Add markers for each UMKM
-    umkm.forEach((item) => {
+    // Add markers for each gastronomi
+    gastronomi.forEach((item) => {
       const lat = parseFloat(item.latitude);
       const lng = parseFloat(item.longitude);
 
@@ -144,7 +143,7 @@ $(document).ready(function () {
 
       const marker = L.marker([lat, lng], {
         icon: L.divIcon({
-          className: "umkm-marker",
+          className: "gastronomi-marker",
           html: `<div style="background-color: ${color}; width: 20px; height: 20px; border-radius: 50%;"></div>`,
           iconSize: [20, 20],
         }),
@@ -414,20 +413,20 @@ $(document).ready(function () {
 
   // Event handlers
   $("#btn-cluster").click(function () {
-    if (umkmData.length === 0 || klasterisasiCriteria.length === 0) {
-      alert("Data umkm atau kriteria klasterisasi belum dimuat!");
+    if (gastronomiData.length === 0 || klasterisasiCriteria.length === 0) {
+      alert("Data gastronomi atau kriteria klasterisasi belum dimuat!");
       return;
     }
 
-    const result = kMeansClustering(umkmData);
+    const result = kMeansClustering(gastronomiData);
 
-    // Update umkm data with new clusters
-    umkmData.forEach((item, index) => {
+    // Update gastronomi data with new clusters
+    gastronomiData.forEach((item, index) => {
       item.klaster = result.clusters[index];
     });
 
     // Plot with new clusters
-    plotumkmOnMap(umkmData);
+    plotgastronomiOnMap(gastronomiData);
 
     // Show clustering results
     showClusterResults(result);
@@ -448,7 +447,7 @@ $(document).ready(function () {
       4
     )} (${interpretSilhouetteScore(result.silhouetteScore)})</p>`;
     html +=
-      '<table class="table table-bordered"><thead><tr><th>Klaster</th><th>Jumlah umkm</th><th>Centroid</th></tr></thead><tbody>';
+      '<table class="table table-bordered"><thead><tr><th>Klaster</th><th>Jumlah gastronomi</th><th>Centroid</th></tr></thead><tbody>';
 
     result.centroids.forEach((centroid, idx) => {
       html += `<tr><td>${clusterNames[idx]}</td><td>${clusterCounts[idx]}</td><td>`;
@@ -464,13 +463,13 @@ $(document).ready(function () {
 
     // Show cluster details
     html =
-      '<h4>Detail Klaster</h4><table class="table table-bordered"><thead><tr><th>No</th><th>umkm</th><th>Klaster</th>';
+      '<h4>Detail Klaster</h4><table class="table table-bordered"><thead><tr><th>No</th><th>gastronomi</th><th>Klaster</th>';
     klasterisasiCriteria.forEach((crit) => {
       html += `<th>${crit.nama}</th>`;
     });
     html += "</tr></thead><tbody>";
 
-    umkmData.forEach((item, idx) => {
+    gastronomiData.forEach((item, idx) => {
       html += `<tr><td>${idx + 1}</td><td>${item.nama}</td><td>${
         clusterNames[result.clusters[idx]]
       }</td>`;
@@ -517,7 +516,7 @@ $(document).ready(function () {
         html += "<th>Klaster Terdekat</th></tr></thead><tbody>";
 
         step.assignments.forEach((assignment, idx) => {
-          html += `<tr><td>${umkmData[idx].nama}</td>`;
+          html += `<tr><td>${gastronomiData[idx].nama}</td>`;
           assignment.distances.forEach((dist) => {
             html += `<td>${dist.toFixed(2)}</td>`;
           });

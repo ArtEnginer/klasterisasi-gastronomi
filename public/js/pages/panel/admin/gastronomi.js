@@ -1,8 +1,8 @@
 const table = {
-  wisata: $("#table-wisata").DataTable({
+  gastronomi: $("#table-gastronomi").DataTable({
     responsive: true,
     ajax: {
-      url: origin + "/api/wisata",
+      url: origin + "/api/gastronomi",
       dataSrc: "",
     },
     order: [
@@ -155,13 +155,13 @@ $("form#form-add").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: origin + "/api/wisata",
+    url: origin + "/api/gastronomi",
     data: formData,
     contentType: false, // WAJIB agar FormData bekerja
     processData: false, // WAJIB agar FormData tidak diubah jadi query string
     success: (data) => {
       form.reset();
-      cloud.pull("wisata");
+      cloud.pull("gastronomi");
       if (data.messages) {
         $.each(data.messages, function (icon, text) {
           Toast.fire({
@@ -197,10 +197,10 @@ $("body").on("click", ".btn-action", function (e) {
         if (result.isConfirmed) {
           $.ajax({
             type: "DELETE",
-            url: origin + "/api/wisata/" + id,
+            url: origin + "/api/gastronomi/" + id,
             cache: false,
             success: (data) => {
-              table.wisata.ajax.reload();
+              table.gastronomi.ajax.reload();
               if (data.messages) {
                 $.each(data.messages, function (icon, text) {
                   Toast.fire({
@@ -215,7 +215,7 @@ $("body").on("click", ".btn-action", function (e) {
       });
       break;
     case "edit":
-      let dataEdit = cloud.get("wisata").find((x) => x.id == id);
+      let dataEdit = cloud.get("gastronomi").find((x) => x.id == id);
       console.log(dataEdit);
       $("form#form-edit")[0].reset();
       $("form#form-edit").find("input[name=id]").val(dataEdit.id);
@@ -248,12 +248,12 @@ $("form#form-edit").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: origin + "/api/wisata/" + data.id,
+    url: origin + "/api/gastronomi/" + data.id,
     data: data,
     cache: false,
     success: (data) => {
       $(this)[0].reset();
-      cloud.pull("wisata");
+      cloud.pull("gastronomi");
       if (data.messages) {
         $.each(data.messages, function (icon, text) {
           Toast.fire({
@@ -281,12 +281,12 @@ $("body").on("keyup", "#form-edit input[name=nama]", function (e) {
 
 $(document).ready(function () {
   cloud
-    .add(origin + "/api/wisata", {
-      name: "wisata",
+    .add(origin + "/api/gastronomi", {
+      name: "gastronomi",
       callback: (data) => {
-        table.wisata.ajax.reload();
+        table.gastronomi.ajax.reload();
       },
     })
-    .then((wisata) => {});
+    .then((gastronomi) => {});
   $(".preloader").slideUp();
 });

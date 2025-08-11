@@ -4,7 +4,7 @@ namespace App\Controllers\Frontend;
 
 use App\Controllers\BaseController;
 use App\Models\PenggunaModel;
-use App\Models\UmkmModel;
+use App\Models\GastronomiModel;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
@@ -27,17 +27,17 @@ class Manage extends BaseController
     {
         $this->view->setData([
             "page" => "dashboard",
-            "umkm" => UmkmModel::all(),
+            "gastronomi" => GastronomiModel::all(),
         ]);
         return $this->view->render("pages/panel/admin/index");
     }
-    public function umkm(): string
+    public function gastronomi(): string
     {
         $this->view->setData([
-            "page" => "umkm",
-            "umkm" => UmkmModel::with(['nilaiKriteriaKlasterisasi'])->get(),
+            "page" => "gastronomi",
+            "gastronomi" => GastronomiModel::with(['nilaiKriteriaKlasterisasi'])->get(),
         ]);
-        return $this->view->render("pages/panel/admin/umkm");
+        return $this->view->render("pages/panel/admin/gastronomi");
     }
 
     public function kriteriaKlasterisasi(): string

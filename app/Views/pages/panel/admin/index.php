@@ -1,6 +1,6 @@
 <?= $this->extend('layouts/panel/main') ?>
 <?= $this->section('main') ?>
-<h1 class="page-title">Model Klasterisasi UMKM</h1>
+<h1 class="page-title">Model Klasterisasi gastronomi</h1>
 <div style="overflow:auto">
     <div class="container">
         <div class="row">

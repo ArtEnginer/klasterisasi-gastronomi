@@ -22,7 +22,7 @@ class InitMigration extends Migration
         });
 
 
-        Eloquent::schema()->create("umkm", function (Blueprint $table) {
+        Eloquent::schema()->create("gastronomi", function (Blueprint $table) {
             $table->id();
             $table->string("kode")->unique();
             $table->string("nama");
@@ -56,16 +56,15 @@ class InitMigration extends Migration
                 ->on("kriteria_klasterisasi")
                 ->onUpdate("cascade")
                 ->onDelete("cascade");
-            $table->string("umkm_kode");
-            $table->foreign("umkm_kode")
+            $table->string("gastronomi_kode");
+            $table->foreign("gastronomi_kode")
                 ->references("kode")
-                ->on("umkm")
+                ->on("gastronomi")
                 ->onUpdate("cascade")
                 ->onDelete("cascade");
             $table->string("nilai");
             $table->timestamps();
         });
-
     }
 
     public function down()
@@ -75,6 +74,6 @@ class InitMigration extends Migration
         Eloquent::schema()->dropIfExists('nilai_kriteria_klasterisasi');
         Eloquent::schema()->dropIfExists('kriteria_perengkingan');
         Eloquent::schema()->dropIfExists('nilai_kriteria_perengkingan');
-        Eloquent::schema()->dropIfExists('umkm');
+        Eloquent::schema()->dropIfExists('gastronomi');
     }
 }

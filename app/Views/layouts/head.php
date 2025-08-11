@@ -109,4 +109,4 @@
 <script src="/js/tailwind.js"></script>
 
 
-<title>UMKM</title>
+<title>GASTRONOMI</title>

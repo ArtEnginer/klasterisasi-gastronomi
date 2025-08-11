@@ -1,7 +1,7 @@
 <a href="#!" class="nav-close"><i class="material-icons">menu</i></a>
 <div class="nav-header">
     <h1><b>
-            REKOMENDASI UMKM
+            GASTRONOMI KLASTERISASI
         </b></h1>
 
     <h3><b>
@@ -13,9 +13,9 @@
         <a href="<?= base_url('panel') ?>" class="nav-link"><i class="material-icons">dashboard</i>Dashboard</a>
     </div>
     <?php if (auth()->user()->inGroup('admin')) : ?>
-        <div class="nav-item" data-page="umkm">
-            <a href="<?= base_url('panel/umkm') ?>" class="nav-link"><i class="material-icons">
-                    place</i>Data umkm</a>
+        <div class="nav-item" data-page="gastronomi">
+            <a href="<?= base_url('panel/gastronomi') ?>" class="nav-link"><i class="material-icons">
+                    place</i>Data gastronomi</a>
         </div>
 
         <div class="nav-item" data-page="kriteria-klasterisasi">

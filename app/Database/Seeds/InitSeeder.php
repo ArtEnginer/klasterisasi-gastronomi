@@ -32,13 +32,13 @@ class InitSeeder extends Seeder
             'password' => "password",
         ])->addGroup('wisatawan')->activate();
 
-        // umkm
-        $this->db->table('umkm')->insertBatch([
+        // gastronomi
+        $this->db->table('gastronomi')->insertBatch([
 
 
             [
                 'kode' => '001',
-                'nama' => 'UMKM Batik Solo',
+                'nama' => 'gastronomi Batik Solo',
                 'alamat' => 'Jl. Keraton Surakarta Hadiningrat No. 1',
                 'deskripsi' => 'Keraton Surakarta Hadiningrat adalah istana kerajaan yang kaya akan sejarah dan budaya Jawa.',
                 'gambar' => 'keraton-surakarta.jpg',
@@ -50,7 +50,7 @@ class InitSeeder extends Seeder
 
             [
                 'kode' => '002',
-                'nama' => 'UMKM Pura Mangkunegaran',
+                'nama' => 'gastronomi Pura Mangkunegaran',
                 'alamat' => 'Jl. Pura Mangkunegaran No. 1',
                 'deskripsi' => 'Pura Mangkunegaran adalah pura yang merupakan tempat tinggal keluarga kerajaan Mangkunegaran.',
                 'gambar' => 'pura-mangkunegaran.jpg',
@@ -61,7 +61,7 @@ class InitSeeder extends Seeder
 
             [
                 'kode' => '003',
-                'nama' => 'UMKM Kampung Batik Laweyan',
+                'nama' => 'gastronomi Kampung Batik Laweyan',
                 'alamat' => 'Jl. Batik Laweyan No. 1',
                 'deskripsi' => 'Kampung Batik Laweyan adalah kawasan yang terkenal dengan kerajinan batiknya.',
                 'gambar' => 'kampung-batik-laweyan.jpg',
@@ -71,7 +71,7 @@ class InitSeeder extends Seeder
             ],
             [
                 'kode' => '004',
-                'nama' => 'UMKM Masjid Agung Keraton Surakarta',
+                'nama' => 'gastronomi Masjid Agung Keraton Surakarta',
                 'alamat' => 'Jl. Masjid Agung No. 1',
                 'deskripsi' => 'Masjid Agung Keraton Surakarta adalah masjid yang terletak di kompleks Keraton Surakarta.',
                 'gambar' => 'masjid-agung-keraton-surakarta.jpg',
@@ -81,7 +81,7 @@ class InitSeeder extends Seeder
             ],
             [
                 'kode' => '005',
-                'nama' => 'UMKM Taman Balekambang',
+                'nama' => 'gastronomi Taman Balekambang',
                 'alamat' => 'Jl. Taman Balekambang No. 1',
                 'deskripsi' => 'Taman Balekambang adalah taman kota yang indah dan cocok untuk bersantai.',
                 'gambar' => 'taman-balekambang.jpg',
@@ -91,7 +91,7 @@ class InitSeeder extends Seeder
             ],
             [
                 'kode' => "006",
-                "nama" => "UMKM Solo Safari",
+                "nama" => "gastronomi Solo Safari",
                 "alamat" => "Jl. Solo Safari No. 1",
                 "deskripsi" => "Solo Safari adalah taman safari yang menawarkan pengalaman melihat satwa liar secara langsung.",
                 "gambar" => "solo-safari.jpg",
@@ -101,7 +101,7 @@ class InitSeeder extends Seeder
             ],
             [
                 'kode' => "007",
-                "nama" => "UMKM Taman Sriwedari",
+                "nama" => "gastronomi Taman Sriwedari",
                 "alamat" => "Jl. Taman Sriwedari No. 1",
                 "deskripsi" => "Taman Sriwedari adalah taman yang sering digunakan untuk pertunjukan seni dan budaya.",
                 "gambar" => "taman-sriwedari.jpg",
@@ -111,7 +111,7 @@ class InitSeeder extends Seeder
             ],
             [
                 'kode' => "008",
-                "nama" => "UMKM The Heritage Palace",
+                "nama" => "gastronomi The Heritage Palace",
                 "alamat" => "Jl. The Heritage Palace No. 1",
                 "deskripsi" => "The Heritage Palace adalah museum yang menampilkan koleksi seni dan budaya Jawa.",
                 "gambar" => "the-heritage-palace.jpg",
@@ -121,7 +121,7 @@ class InitSeeder extends Seeder
             ],
             [
                 'kode' => "009",
-                "nama" => "UMKM Tumurun Private Museum",
+                "nama" => "gastronomi Tumurun Private Museum",
                 "alamat" => "Jl. Tumurun No. 1",
                 "deskripsi" => "Tumurun Private Museum adalah museum pribadi yang menyimpan koleksi seni yang berharga.",
                 "gambar" => "tumurun-private-museum.jpg",
@@ -131,7 +131,7 @@ class InitSeeder extends Seeder
             ],
             [
                 'kode' => '010',
-                'nama' => 'UMKM Masjid Raya Sheikh Zayed',
+                'nama' => 'gastronomi Masjid Raya Sheikh Zayed',
                 'alamat' => 'Jl. Masjid Raya Sheikh Zayed No. 1',
                 'deskripsi' => 'Masjid Raya Sheikh Zayed adalah masjid megah yang menjadi salah satu ikon kota.',
                 'gambar' => 'masjid-raya-sheikh-zayed.jpg',
@@ -209,618 +209,618 @@ class InitSeeder extends Seeder
         $this->db->table('nilai_kriteria_klasterisasi')->insertBatch([
             [
                 'kriteria_klasterisasi_kode' => 'K001',
-                'umkm_kode' => '001',
+                'gastronomi_kode' => '001',
                 'nilai' => 50,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K002',
-                'umkm_kode' => '001',
+                'gastronomi_kode' => '001',
                 'nilai' => 20,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K003',
-                'umkm_kode' => '001',
+                'gastronomi_kode' => '001',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K004',
-                'umkm_kode' => '001',
+                'gastronomi_kode' => '001',
                 'nilai' => 5,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K005',
-                'umkm_kode' => '001',
+                'gastronomi_kode' => '001',
                 'nilai' => 100,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K006',
-                'umkm_kode' => '001',
+                'gastronomi_kode' => '001',
                 'nilai' => 10,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K007',
-                'umkm_kode' => '001',
+                'gastronomi_kode' => '001',
                 'nilai' => 3,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K008',
-                'umkm_kode' => '001',
+                'gastronomi_kode' => '001',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K009',
-                'umkm_kode' => '001',
+                'gastronomi_kode' => '001',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K010',
-                'umkm_kode' => '001',
+                'gastronomi_kode' => '001',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K011',
-                'umkm_kode' => '001',
+                'gastronomi_kode' => '001',
                 'nilai' => 5,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K012',
-                'umkm_kode' => '001',
+                'gastronomi_kode' => '001',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K001',
-                'umkm_kode' => '002',
+                'gastronomi_kode' => '002',
                 'nilai' => 60,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K002',
-                'umkm_kode' => '002',
+                'gastronomi_kode' => '002',
                 'nilai' => 30,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K003',
-                'umkm_kode' => '002',
+                'gastronomi_kode' => '002',
                 'nilai' => 5,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K004',
-                'umkm_kode' => '002',
+                'gastronomi_kode' => '002',
                 'nilai' => 10,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K005',
-                'umkm_kode' => '002',
+                'gastronomi_kode' => '002',
                 'nilai' => 150,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K006',
-                'umkm_kode' => '002',
+                'gastronomi_kode' => '002',
                 'nilai' => 15,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K007',
-                'umkm_kode' => '002',
+                'gastronomi_kode' => '002',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K008',
-                'umkm_kode' => '002',
+                'gastronomi_kode' => '002',
                 'nilai' => 5,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K009',
-                'umkm_kode' => '002',
+                'gastronomi_kode' => '002',
                 'nilai' => 5,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K010',
-                'umkm_kode' => '002',
+                'gastronomi_kode' => '002',
                 'nilai' => 5,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K011',
-                'umkm_kode' => '002',
+                'gastronomi_kode' => '002',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K012',
-                'umkm_kode' => '002',
+                'gastronomi_kode' => '002',
                 'nilai' => 5,
             ],
 
-            // UMKM 003 - Kampung Batik Laweyan
+            // gastronomi 003 - Kampung Batik Laweyan
             [
                 'kriteria_klasterisasi_kode' => 'K001',
-                'umkm_kode' => '003',
+                'gastronomi_kode' => '003',
                 'nilai' => 45,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K002',
-                'umkm_kode' => '003',
+                'gastronomi_kode' => '003',
                 'nilai' => 15,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K003',
-                'umkm_kode' => '003',
+                'gastronomi_kode' => '003',
                 'nilai' => 3,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K004',
-                'umkm_kode' => '003',
+                'gastronomi_kode' => '003',
                 'nilai' => 8,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K005',
-                'umkm_kode' => '003',
+                'gastronomi_kode' => '003',
                 'nilai' => 120,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K006',
-                'umkm_kode' => '003',
+                'gastronomi_kode' => '003',
                 'nilai' => 12,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K007',
-                'umkm_kode' => '003',
+                'gastronomi_kode' => '003',
                 'nilai' => 3,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K008',
-                'umkm_kode' => '003',
+                'gastronomi_kode' => '003',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K009',
-                'umkm_kode' => '003',
+                'gastronomi_kode' => '003',
                 'nilai' => 3,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K010',
-                'umkm_kode' => '003',
+                'gastronomi_kode' => '003',
                 'nilai' => 3,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K011',
-                'umkm_kode' => '003',
+                'gastronomi_kode' => '003',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K012',
-                'umkm_kode' => '003',
+                'gastronomi_kode' => '003',
                 'nilai' => 3,
             ],
 
-            // UMKM 004 - Masjid Agung Keraton Surakarta
+            // gastronomi 004 - Masjid Agung Keraton Surakarta
             [
                 'kriteria_klasterisasi_kode' => 'K001',
-                'umkm_kode' => '004',
+                'gastronomi_kode' => '004',
                 'nilai' => 35,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K002',
-                'umkm_kode' => '004',
+                'gastronomi_kode' => '004',
                 'nilai' => 25,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K003',
-                'umkm_kode' => '004',
+                'gastronomi_kode' => '004',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K004',
-                'umkm_kode' => '004',
+                'gastronomi_kode' => '004',
                 'nilai' => 7,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K005',
-                'umkm_kode' => '004',
+                'gastronomi_kode' => '004',
                 'nilai' => 80,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K006',
-                'umkm_kode' => '004',
+                'gastronomi_kode' => '004',
                 'nilai' => 8,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K007',
-                'umkm_kode' => '004',
+                'gastronomi_kode' => '004',
                 'nilai' => 2,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K008',
-                'umkm_kode' => '004',
+                'gastronomi_kode' => '004',
                 'nilai' => 3,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K009',
-                'umkm_kode' => '004',
+                'gastronomi_kode' => '004',
                 'nilai' => 3,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K010',
-                'umkm_kode' => '004',
+                'gastronomi_kode' => '004',
                 'nilai' => 3,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K011',
-                'umkm_kode' => '004',
+                'gastronomi_kode' => '004',
                 'nilai' => 5,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K012',
-                'umkm_kode' => '004',
+                'gastronomi_kode' => '004',
                 'nilai' => 4,
             ],
 
-            // UMKM 005 - Taman Balekambang
+            // gastronomi 005 - Taman Balekambang
             [
                 'kriteria_klasterisasi_kode' => 'K001',
-                'umkm_kode' => '005',
+                'gastronomi_kode' => '005',
                 'nilai' => 25,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K002',
-                'umkm_kode' => '005',
+                'gastronomi_kode' => '005',
                 'nilai' => 10,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K003',
-                'umkm_kode' => '005',
+                'gastronomi_kode' => '005',
                 'nilai' => 2,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K004',
-                'umkm_kode' => '005',
+                'gastronomi_kode' => '005',
                 'nilai' => 3,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K005',
-                'umkm_kode' => '005',
+                'gastronomi_kode' => '005',
                 'nilai' => 50,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K006',
-                'umkm_kode' => '005',
+                'gastronomi_kode' => '005',
                 'nilai' => 5,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K007',
-                'umkm_kode' => '005',
+                'gastronomi_kode' => '005',
                 'nilai' => 2,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K008',
-                'umkm_kode' => '005',
+                'gastronomi_kode' => '005',
                 'nilai' => 2,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K009',
-                'umkm_kode' => '005',
+                'gastronomi_kode' => '005',
                 'nilai' => 2,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K010',
-                'umkm_kode' => '005',
+                'gastronomi_kode' => '005',
                 'nilai' => 2,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K011',
-                'umkm_kode' => '005',
+                'gastronomi_kode' => '005',
                 'nilai' => 3,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K012',
-                'umkm_kode' => '005',
+                'gastronomi_kode' => '005',
                 'nilai' => 2,
             ],
 
-            // UMKM 006 - Solo Safari
+            // gastronomi 006 - Solo Safari
             [
                 'kriteria_klasterisasi_kode' => 'K001',
-                'umkm_kode' => '006',
+                'gastronomi_kode' => '006',
                 'nilai' => 80,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K002',
-                'umkm_kode' => '006',
+                'gastronomi_kode' => '006',
                 'nilai' => 50,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K003',
-                'umkm_kode' => '006',
+                'gastronomi_kode' => '006',
                 'nilai' => 5,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K004',
-                'umkm_kode' => '006',
+                'gastronomi_kode' => '006',
                 'nilai' => 15,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K005',
-                'umkm_kode' => '006',
+                'gastronomi_kode' => '006',
                 'nilai' => 200,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K006',
-                'umkm_kode' => '006',
+                'gastronomi_kode' => '006',
                 'nilai' => 25,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K007',
-                'umkm_kode' => '006',
+                'gastronomi_kode' => '006',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K008',
-                'umkm_kode' => '006',
+                'gastronomi_kode' => '006',
                 'nilai' => 5,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K009',
-                'umkm_kode' => '006',
+                'gastronomi_kode' => '006',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K010',
-                'umkm_kode' => '006',
+                'gastronomi_kode' => '006',
                 'nilai' => 5,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K011',
-                'umkm_kode' => '006',
+                'gastronomi_kode' => '006',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K012',
-                'umkm_kode' => '006',
+                'gastronomi_kode' => '006',
                 'nilai' => 5,
             ],
 
-            // UMKM 007 - Taman Sriwedari
+            // gastronomi 007 - Taman Sriwedari
             [
                 'kriteria_klasterisasi_kode' => 'K001',
-                'umkm_kode' => '007',
+                'gastronomi_kode' => '007',
                 'nilai' => 40,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K002',
-                'umkm_kode' => '007',
+                'gastronomi_kode' => '007',
                 'nilai' => 18,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K003',
-                'umkm_kode' => '007',
+                'gastronomi_kode' => '007',
                 'nilai' => 3,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K004',
-                'umkm_kode' => '007',
+                'gastronomi_kode' => '007',
                 'nilai' => 6,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K005',
-                'umkm_kode' => '007',
+                'gastronomi_kode' => '007',
                 'nilai' => 90,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K006',
-                'umkm_kode' => '007',
+                'gastronomi_kode' => '007',
                 'nilai' => 7,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K007',
-                'umkm_kode' => '007',
+                'gastronomi_kode' => '007',
                 'nilai' => 3,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K008',
-                'umkm_kode' => '007',
+                'gastronomi_kode' => '007',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K009',
-                'umkm_kode' => '007',
+                'gastronomi_kode' => '007',
                 'nilai' => 3,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K010',
-                'umkm_kode' => '007',
+                'gastronomi_kode' => '007',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K011',
-                'umkm_kode' => '007',
+                'gastronomi_kode' => '007',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K012',
-                'umkm_kode' => '007',
+                'gastronomi_kode' => '007',
                 'nilai' => 3,
             ],
 
-            // UMKM 008 - The Heritage Palace
+            // gastronomi 008 - The Heritage Palace
             [
                 'kriteria_klasterisasi_kode' => 'K001',
-                'umkm_kode' => '008',
+                'gastronomi_kode' => '008',
                 'nilai' => 70,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K002',
-                'umkm_kode' => '008',
+                'gastronomi_kode' => '008',
                 'nilai' => 40,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K003',
-                'umkm_kode' => '008',
+                'gastronomi_kode' => '008',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K004',
-                'umkm_kode' => '008',
+                'gastronomi_kode' => '008',
                 'nilai' => 12,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K005',
-                'umkm_kode' => '008',
+                'gastronomi_kode' => '008',
                 'nilai' => 180,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K006',
-                'umkm_kode' => '008',
+                'gastronomi_kode' => '008',
                 'nilai' => 20,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K007',
-                'umkm_kode' => '008',
+                'gastronomi_kode' => '008',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K008',
-                'umkm_kode' => '008',
+                'gastronomi_kode' => '008',
                 'nilai' => 5,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K009',
-                'umkm_kode' => '008',
+                'gastronomi_kode' => '008',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K010',
-                'umkm_kode' => '008',
+                'gastronomi_kode' => '008',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K011',
-                'umkm_kode' => '008',
+                'gastronomi_kode' => '008',
                 'nilai' => 5,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K012',
-                'umkm_kode' => '008',
+                'gastronomi_kode' => '008',
                 'nilai' => 4,
             ],
 
-            // UMKM 009 - Tumurun Private Museum
+            // gastronomi 009 - Tumurun Private Museum
             [
                 'kriteria_klasterisasi_kode' => 'K001',
-                'umkm_kode' => '009',
+                'gastronomi_kode' => '009',
                 'nilai' => 55,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K002',
-                'umkm_kode' => '009',
+                'gastronomi_kode' => '009',
                 'nilai' => 35,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K003',
-                'umkm_kode' => '009',
+                'gastronomi_kode' => '009',
                 'nilai' => 3,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K004',
-                'umkm_kode' => '009',
+                'gastronomi_kode' => '009',
                 'nilai' => 9,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K005',
-                'umkm_kode' => '009',
+                'gastronomi_kode' => '009',
                 'nilai' => 140,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K006',
-                'umkm_kode' => '009',
+                'gastronomi_kode' => '009',
                 'nilai' => 18,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K007',
-                'umkm_kode' => '009',
+                'gastronomi_kode' => '009',
                 'nilai' => 3,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K008',
-                'umkm_kode' => '009',
+                'gastronomi_kode' => '009',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K009',
-                'umkm_kode' => '009',
+                'gastronomi_kode' => '009',
                 'nilai' => 3,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K010',
-                'umkm_kode' => '009',
+                'gastronomi_kode' => '009',
                 'nilai' => 3,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K011',
-                'umkm_kode' => '009',
+                'gastronomi_kode' => '009',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K012',
-                'umkm_kode' => '009',
+                'gastronomi_kode' => '009',
                 'nilai' => 3,
             ],
 
-            // UMKM 010 - Masjid Raya Sheikh Zayed
+            // gastronomi 010 - Masjid Raya Sheikh Zayed
             [
                 'kriteria_klasterisasi_kode' => 'K001',
-                'umkm_kode' => '010',
+                'gastronomi_kode' => '010',
                 'nilai' => 65,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K002',
-                'umkm_kode' => '010',
+                'gastronomi_kode' => '010',
                 'nilai' => 45,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K003',
-                'umkm_kode' => '010',
+                'gastronomi_kode' => '010',
                 'nilai' => 5,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K004',
-                'umkm_kode' => '010',
+                'gastronomi_kode' => '010',
                 'nilai' => 12,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K005',
-                'umkm_kode' => '010',
+                'gastronomi_kode' => '010',
                 'nilai' => 170,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K006',
-                'umkm_kode' => '010',
+                'gastronomi_kode' => '010',
                 'nilai' => 22,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K007',
-                'umkm_kode' => '010',
+                'gastronomi_kode' => '010',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K008',
-                'umkm_kode' => '010',
+                'gastronomi_kode' => '010',
                 'nilai' => 5,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K009',
-                'umkm_kode' => '010',
+                'gastronomi_kode' => '010',
                 'nilai' => 4,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K010',
-                'umkm_kode' => '010',
+                'gastronomi_kode' => '010',
                 'nilai' => 5,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K011',
-                'umkm_kode' => '010',
+                'gastronomi_kode' => '010',
                 'nilai' => 5,
             ],
             [
                 'kriteria_klasterisasi_kode' => 'K012',
-                'umkm_kode' => '010',
+                'gastronomi_kode' => '010',
                 'nilai' => 5,
             ],
         ]);

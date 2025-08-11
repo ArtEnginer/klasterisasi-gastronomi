@@ -3,18 +3,18 @@
 namespace App\Controllers\Api;
 
 use App\Controllers\BaseApi;
-use App\Models\UmkmModel;
+use App\Models\GastronomiModel;
 
-class UmkmController extends BaseApi
+class GastronomiController extends BaseApi
 {
-    protected $modelName = UmkmModel::class;
+    protected $modelName = GastronomiModel::class;
     protected $load = ['nilaiKriteriaKlasterisasi'];
     public function validateCreate(&$request)
 
     {
         return $this->validate([
             'nama' => 'required',
-            'kode' => 'required|is_unique[umkm.kode]',
+            'kode' => 'required|is_unique[gastronomi.kode]',
             'gambar' => 'uploaded[gambar]|max_size[gambar,2048]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/gif,image/png]',
         ]);
     }

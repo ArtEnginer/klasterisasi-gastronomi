@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\Sawkrs\MahasiswaModel;
 use App\Models\PenggunaModel;
 use App\Models\UserModel;
 use CodeIgniter\API\ResponseTrait;
@@ -10,10 +9,10 @@ use CodeIgniter\API\ResponseTrait;
 class Home extends BaseController
 {
     use ResponseTrait;
-    public function index(): string
+    public function index()
     {
 
-        return view('pages/landing/index');
+        return redirect()->to('panel');
     }
 
     public function register()
