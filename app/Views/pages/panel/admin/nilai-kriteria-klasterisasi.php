@@ -10,7 +10,7 @@
 <h1 class="page-title">Data nilai-kriteria-klasterisasi</h1>
 <div class="page-wrapper">
     <div class="page">
-        <div class="container">
+        <div class="">
             <div class="row">
                 <div class="col-6 text-end">
                     <button class="btn waves-effect waves-light green btn-popup" data-target="add" type="button" data-target="form"><i class="material-icons left">add</i>Nilai</button>

@@ -10,7 +10,7 @@
     </p>
 </div>
 <div style="overflow:auto">
-    <div class="container">
+    <div class="">
         <div class="row">
             <div class="col s12">
                 <ul class="tabs gastronomy-tabs">
@@ -48,9 +48,69 @@
                     <p class="tab-description">
                         Sistem ini menggunakan algoritma K-Means untuk mengelompokkan destinasi wisata gastronomi berdasarkan kriteria tertentu guna mendukung pelestarian kuliner tradisional.
                     </p>
+
+                    <!-- Centroid Configuration Form -->
+                    <div class="card-panel centroid-config-card" style="margin-bottom: 20px;">
+                        <h5 class="card-title">
+                            <i class="material-icons left">settings</i>
+                            Konfigurasi Centroid Awal
+                        </h5>
+
+                        <div class="row centroid-method-options">
+                            <div class="col s12 m6">
+                                <label>
+                                    <input type="radio" name="centroid-method" value="random" checked />
+                                    <span>Centroid Acak (Otomatis)</span>
+                                </label>
+                            </div>
+                            <div class="col s12 m6">
+                                <label>
+                                    <input type="radio" name="centroid-method" value="manual" />
+                                    <span>Centroid Manual</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="manual-centroid-form" style="display: none;">
+                            <h6>Pilih Titik Centroid Awal</h6>
+                            <p class="grey-text">Pilih 3 destinasi sebagai centroid awal untuk klasterisasi:</p>
+
+                            <div class="row">
+                                <div class="col s12 m4 centroid-select-wrapper">
+                                    <div class="input-field">
+                                        <select id="centroid-1">
+                                            <option value="" disabled selected>Pilih Centroid 1</option>
+                                        </select>
+                                        <label>Centroid 1 (Sangat Bagus)</label>
+                                    </div>
+                                </div>
+                                <div class="col s12 m4 centroid-select-wrapper">
+                                    <div class="input-field">
+                                        <select id="centroid-2">
+                                            <option value="" disabled selected>Pilih Centroid 2</option>
+                                        </select>
+                                        <label>Centroid 2 (Cukup Bagus)</label>
+                                    </div>
+                                </div>
+                                <div class="col s12 m4 centroid-select-wrapper">
+                                    <div class="input-field">
+                                        <select id="centroid-3">
+                                            <option value="" disabled selected>Pilih Centroid 3</option>
+                                        </select>
+                                        <label>Centroid 3 (Kurang Bagus)</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="centroid-preview" class="section">
+                                <!-- Preview centroid values will be shown here -->
+                            </div>
+                        </div>
+                    </div>
+
                     <a class="waves-effect waves-light btn gastronomy-btn" id="btn-cluster">
                         <i class="material-icons left">play_arrow</i>
-                        Jalankan Klasterisasi K-Means
+                        <span class="btn-text">Jalankan Klasterisasi K-Means</span>
                     </a>
                     <div id="cluster-results" class="section results-container"></div>
                     <div id="cluster-details" class="section details-container"></div>

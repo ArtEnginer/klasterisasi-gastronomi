@@ -8,7 +8,7 @@
 <h1 class="page-title">Data Pengguna Sistem</h1>
 <div class="page-wrapper">
     <div class="page">
-        <div class="container">
+        <div class="">
             <div class="row">
                 <div class="col-12 text-end">
                     <button class="btn waves-effect waves-light green btn-slider" data-action="add" type="button"
@@ -36,7 +36,7 @@
                         class="material-icons left">arrow_back</i>Kembali</button>
             </div>
         </div>
-        <div class="container">
+        <div class="">
             <div class="row">
                 <form class="col s12 m6 offset-m3 form" id="form-user" action="" method="POST">
                     <h1 class="form-title">Tambah Data Pengguna</h1>

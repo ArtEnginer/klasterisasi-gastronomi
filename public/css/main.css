@@ -572,3 +572,153 @@ img.pasfoto:active {
     width: 0%;
   }
 }
+
+/* Centroid Configuration Styles */
+.centroid-config-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.centroid-config-card .card-title {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.centroid-method-options {
+  margin: 15px 0;
+}
+
+.centroid-method-options label {
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.centroid-method-options input[type="radio"]:checked+span {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+#manual-centroid-form {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+#manual-centroid-form h6 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.centroid-select-wrapper {
+  margin-bottom: 15px;
+}
+
+.centroid-select-wrapper .input-field {
+  margin-bottom: 0;
+}
+
+.centroid-select-wrapper label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+#centroid-preview {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+#centroid-preview h6 {
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+#centroid-preview table {
+  font-size: 0.9rem;
+}
+
+#centroid-preview table th {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 8px;
+  text-align: center;
+}
+
+#centroid-preview table td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+#centroid-preview .red-text {
+  font-weight: 500;
+  padding: 10px;
+  background: #ffebee;
+  border-radius: 4px;
+  border-left: 4px solid #f44336;
+}
+
+/* Enhanced button styling for clustering */
+.gastronomy-btn {
+  background: var(--primary-gradient) !important;
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.gastronomy-btn:hover {
+  background: var(--primary-hover) !important;
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.gastronomy-btn:disabled {
+  background: #ccc !important;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Centroid marker styles */
+.centroid-marker {
+  z-index: 1000 !important;
+}
+
+.centroid-marker div {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Toast notification improvements */
+.toast {
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* Table improvements for centroid preview */
+#centroid-preview table th {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#centroid-preview table td {
+  font-size: 0.9rem;
+  vertical-align: middle;
+}

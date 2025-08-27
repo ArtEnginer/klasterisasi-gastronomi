@@ -7,6 +7,7 @@ $(document).ready(function () {
   let markers = [];
   let gastronomiData = [];
   let klasterisasiCriteria = [];
+  let manualCentroids = null;
 
   // Initialize map with OpenStreetMap and Nominatim for geocoding
   function initMap() {
@@ -88,18 +89,20 @@ $(document).ready(function () {
   // Load data
   function loadData() {
     cloud
-      .add(origin + "/api/gastronomi", {
+      .add(baseUrl + "/api/gastronomi", {
         name: "gastronomi",
       })
       .then((gastronomi) => {
         gastronomiData = gastronomi;
         console.log("gastronomi data loaded", gastronomi);
         plotgastronomiOnMap(gastronomi);
+        populateCentroidOptions(gastronomi);
+        updateClusterButton();
       })
       .catch((error) => console.error("Error loading gastronomi data:", error));
 
     cloud
-      .add(origin + "/api/kriteria-klasterisasi", {
+      .add(baseUrl + "/api/kriteria-klasterisasi", {
         name: "kriteria-klasterisasi",
       })
       .then((kriteria) => {
@@ -194,6 +197,7 @@ $(document).ready(function () {
   $(window).on("load", function () {
     initMap();
     loadData();
+    initCentroidForm();
   });
 
   // Reinitialize map when tab changes
@@ -207,8 +211,226 @@ $(document).ready(function () {
     }, 100);
   });
 
-  // K-Means Clustering implementation with detailed steps
-  function kMeansClustering(data, k = 3, maxIterations = 100) {
+  // Populate centroid selection options
+  function populateCentroidOptions(gastronomi) {
+    const centroidSelects = ["#centroid-1", "#centroid-2", "#centroid-3"];
+
+    centroidSelects.forEach((selectId) => {
+      const select = $(selectId);
+      select.empty();
+      select.append(
+        '<option value="" disabled selected>Pilih Destinasi</option>'
+      );
+
+      gastronomi.forEach((item, index) => {
+        select.append(`<option value="${index}">${item.nama}</option>`);
+      });
+    });
+
+    // Initialize Materialize select
+    $("select").formSelect();
+  }
+
+  // Handle centroid method change
+  function initCentroidForm() {
+    $('input[name="centroid-method"]').change(function () {
+      if ($(this).val() === "manual") {
+        $("#manual-centroid-form").slideDown();
+        // Reset form when switching to manual
+        $("#centroid-1, #centroid-2, #centroid-3").val("").formSelect();
+        $("#centroid-preview").html("");
+        manualCentroids = null;
+      } else {
+        $("#manual-centroid-form").slideUp();
+        manualCentroids = null;
+        // Reset map to show normal markers
+        plotgastronomiOnMap(gastronomiData);
+      }
+      updateClusterButton();
+    });
+
+    // Handle centroid selection change
+    $("#centroid-1, #centroid-2, #centroid-3").change(function () {
+      updateCentroidPreview();
+      updateClusterButton();
+    });
+  }
+
+  // Update cluster button state
+  function updateClusterButton() {
+    const centroidMethod = $('input[name="centroid-method"]:checked').val();
+    const btn = $("#btn-cluster");
+
+    if (centroidMethod === "manual") {
+      if (manualCentroids && manualCentroids.length === 3) {
+        btn.removeClass("disabled").removeAttr("disabled");
+        btn.find("i").text("play_arrow");
+        btn.find(".btn-text").text("Jalankan Klasterisasi K-Means");
+      } else {
+        btn.addClass("disabled").attr("disabled", true);
+        btn.find("i").text("warning");
+        btn.find(".btn-text").text("Pilih 3 Centroid Terlebih Dahulu");
+      }
+    } else {
+      btn.removeClass("disabled").removeAttr("disabled");
+      btn.find("i").text("play_arrow");
+      btn.find(".btn-text").text("Jalankan Klasterisasi K-Means");
+    }
+  }
+
+  // Update centroid preview
+  function updateCentroidPreview() {
+    const centroid1Index = $("#centroid-1").val();
+    const centroid2Index = $("#centroid-2").val();
+    const centroid3Index = $("#centroid-3").val();
+
+    if (!centroid1Index || !centroid2Index || !centroid3Index) {
+      $("#centroid-preview").html("");
+      manualCentroids = null;
+      // Re-plot map without centroid highlights
+      plotgastronomiOnMap(gastronomiData);
+      return;
+    }
+
+    // Check for duplicates
+    const selectedIndices = [centroid1Index, centroid2Index, centroid3Index];
+    const uniqueIndices = [...new Set(selectedIndices)];
+
+    if (uniqueIndices.length !== 3) {
+      $("#centroid-preview").html(
+        '<div class="red-text">Error: Tidak boleh memilih destinasi yang sama untuk centroid berbeda!</div>'
+      );
+      manualCentroids = null;
+      return;
+    }
+
+    const selectedGastronomi = [
+      gastronomiData[parseInt(centroid1Index)],
+      gastronomiData[parseInt(centroid2Index)],
+      gastronomiData[parseInt(centroid3Index)],
+    ];
+
+    // Extract centroid values
+    manualCentroids = selectedGastronomi.map((item) =>
+      item.nilai_kriteria_klasterisasi.map((nilai) => parseFloat(nilai.nilai))
+    );
+
+    // Highlight selected centroids on map
+    highlightCentroidsOnMap(selectedIndices);
+
+    // Show preview
+    let html = "<h6>Preview Centroid Terpilih:</h6>";
+    html +=
+      '<div class="green-text" style="margin-bottom: 10px;"><i class="material-icons tiny">check_circle</i> Centroid berhasil dipilih!</div>';
+    html +=
+      '<table class="table table-bordered"><thead><tr><th>Centroid</th><th>Destinasi</th>';
+    klasterisasiCriteria.forEach((crit) => {
+      html += `<th>${crit.nama}</th>`;
+    });
+    html += "</tr></thead><tbody>";
+
+    selectedGastronomi.forEach((item, idx) => {
+      const clusterNames = ["Sangat Bagus", "Cukup Bagus", "Kurang Bagus"];
+      const clusterColors = ["#FF0000", "#00FF00", "#0000FF"];
+      html += `<tr><td><strong style="color: ${clusterColors[idx]}">${clusterNames[idx]}</strong></td><td>${item.nama}</td>`;
+      item.nilai_kriteria_klasterisasi.forEach((nilai) => {
+        html += `<td>${nilai.nilai}</td>`;
+      });
+      html += "</tr>";
+    });
+
+    html += "</tbody></table>";
+    html +=
+      '<p class="grey-text"><i class="material-icons tiny">info</i> Centroid ini akan digunakan sebagai titik awal klasterisasi K-Means. Lihat titik yang disorot di peta.</p>';
+    $("#centroid-preview").html(html);
+  }
+
+  // Highlight selected centroids on map
+  function highlightCentroidsOnMap(centroidIndices) {
+    if (!map || !gastronomiData || gastronomiData.length === 0) return;
+
+    // Clear existing markers
+    clearMarkers();
+
+    // Define cluster colors for centroids
+    const centroidColors = ["#FF0000", "#00FF00", "#0000FF"]; // Red, Green, Blue
+
+    // Add markers for each gastronomi
+    gastronomiData.forEach((item, index) => {
+      const lat = parseFloat(item.latitude);
+      const lng = parseFloat(item.longitude);
+
+      if (isNaN(lat) || isNaN(lng)) {
+        console.error("Invalid coordinates for", item.nama);
+        return;
+      }
+
+      // Check if this is a selected centroid
+      const centroidIndex = centroidIndices.indexOf(index.toString());
+      const isCentroid = centroidIndex !== -1;
+
+      // Determine marker style
+      let markerStyle, markerSize;
+      if (isCentroid) {
+        const color = centroidColors[centroidIndex];
+        markerStyle = `background-color: ${color}; width: 30px; height: 30px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.3);`;
+        markerSize = [30, 30];
+      } else {
+        markerStyle = `background-color: #808080; width: 15px; height: 15px; border-radius: 50%; opacity: 0.6;`;
+        markerSize = [15, 15];
+      }
+
+      const marker = L.marker([lat, lng], {
+        icon: L.divIcon({
+          className: isCentroid ? "centroid-marker" : "gastronomi-marker",
+          html: `<div style="${markerStyle}"></div>`,
+          iconSize: markerSize,
+        }),
+        riseOnHover: true,
+      })
+        .addTo(map)
+        .bindPopup(createCentroidPopupContent(item, isCentroid, centroidIndex));
+
+      markers.push(marker);
+    });
+
+    // Fit bounds to show all markers if there are any
+    if (markers.length > 0) {
+      const group = new L.featureGroup(markers);
+      map.fitBounds(group.getBounds().pad(0.1));
+    }
+  }
+
+  // Create popup content for centroid markers
+  function createCentroidPopupContent(item, isCentroid, centroidIndex) {
+    let content = `<b>${item.nama}</b><br>${item.deskripsi || ""}`;
+
+    if (isCentroid) {
+      const clusterNames = ["Sangat Bagus", "Cukup Bagus", "Kurang Bagus"];
+      content += `<br><b style="color: #ff6600;">🎯 CENTROID ${
+        centroidIndex + 1
+      }</b>`;
+      content += `<br><b>Klaster:</b> ${clusterNames[centroidIndex]}`;
+    }
+
+    if (item.nilai_kriteria_klasterisasi) {
+      content += "<br><b>Kriteria:</b><ul>";
+      item.nilai_kriteria_klasterisasi.forEach((kriteria) => {
+        content += `<li>${kriteria.kriteria_klasterisasi.nama}: ${kriteria.nilai}</li>`;
+      });
+      content += "</ul>";
+    }
+
+    return content;
+  }
+
+  // K-Means Clustering implementation with manual centroid option
+  function kMeansClustering(
+    data,
+    k = 3,
+    maxIterations = 100,
+    initialCentroids = null
+  ) {
     // Extract features for clustering
     const features = data.map((item) => {
       return item.nilai_kriteria_klasterisasi.map((nilai) =>
@@ -216,14 +438,21 @@ $(document).ready(function () {
       );
     });
 
-    // Step 1: Initialize centroids randomly
+    // Step 1: Initialize centroids
     let centroids = [];
-    const randomIndices = [];
-    while (randomIndices.length < k) {
-      const randomIndex = Math.floor(Math.random() * data.length);
-      if (!randomIndices.includes(randomIndex)) {
-        randomIndices.push(randomIndex);
-        centroids.push([...features[randomIndex]]);
+
+    if (initialCentroids && initialCentroids.length === k) {
+      // Use manual centroids
+      centroids = initialCentroids.map((centroid) => [...centroid]);
+    } else {
+      // Use random centroids (original behavior)
+      const randomIndices = [];
+      while (randomIndices.length < k) {
+        const randomIndex = Math.floor(Math.random() * data.length);
+        if (!randomIndices.includes(randomIndex)) {
+          randomIndices.push(randomIndex);
+          centroids.push([...features[randomIndex]]);
+        }
       }
     }
 
@@ -232,11 +461,13 @@ $(document).ready(function () {
     let iterations = 0;
     let steps = [];
 
+    const initMethod = initialCentroids ? "manual" : "acak";
     steps.push({
       title: "Inisialisasi Awal",
-      description: `Memilih ${k} centroid acak dari data:`,
+      description: `Memilih ${k} centroid secara ${initMethod}:`,
       centroids: [...centroids],
       clusters: [...clusters],
+      method: initMethod,
     });
 
     while (!arraysEqual(clusters, prevClusters) && iterations < maxIterations) {
@@ -414,24 +645,79 @@ $(document).ready(function () {
   // Event handlers
   $("#btn-cluster").click(function () {
     if (gastronomiData.length === 0 || klasterisasiCriteria.length === 0) {
-      alert("Data gastronomi atau kriteria klasterisasi belum dimuat!");
+      M.toast({
+        html: "Data gastronomi atau kriteria klasterisasi belum dimuat!",
+        classes: "red",
+      });
       return;
     }
 
-    const result = kMeansClustering(gastronomiData);
+    // Check centroid method
+    const centroidMethod = $('input[name="centroid-method"]:checked').val();
+    let initialCentroids = null;
 
-    // Update gastronomi data with new clusters
-    gastronomiData.forEach((item, index) => {
-      item.klaster = result.clusters[index];
-    });
+    if (centroidMethod === "manual") {
+      if (!manualCentroids || manualCentroids.length !== 3) {
+        M.toast({
+          html: "Silakan pilih 3 destinasi untuk centroid awal!",
+          classes: "orange",
+        });
+        return;
+      }
+      initialCentroids = manualCentroids;
+    }
 
-    // Plot with new clusters
-    plotgastronomiOnMap(gastronomiData);
+    // Show loading state
+    const btn = $(this);
+    const originalHtml = btn.html();
+    btn.html(
+      '<i class="material-icons left">hourglass_empty</i><span class="btn-text">Memproses...</span>'
+    );
+    btn.addClass("disabled").attr("disabled", true);
 
-    // Show clustering results
-    showClusterResults(result);
+    // Run clustering with a slight delay to show loading state
+    setTimeout(() => {
+      try {
+        const result = kMeansClustering(
+          gastronomiData,
+          3,
+          100,
+          initialCentroids
+        );
 
-    console.log("Clustering completed", result);
+        // Update gastronomi data with new clusters
+        gastronomiData.forEach((item, index) => {
+          item.klaster = result.clusters[index];
+        });
+
+        // Plot with new clusters
+        plotgastronomiOnMap(gastronomiData);
+
+        // Show clustering results
+        showClusterResults(result);
+
+        // Show success message
+        const methodText =
+          centroidMethod === "manual" ? "centroid manual" : "centroid acak";
+        M.toast({
+          html: `Klasterisasi berhasil dengan ${methodText}! (${result.iterations} iterasi)`,
+          classes: "green",
+        });
+
+        console.log("Clustering completed", result);
+      } catch (error) {
+        console.error("Clustering error:", error);
+        M.toast({
+          html: "Terjadi kesalahan saat melakukan klasterisasi!",
+          classes: "red",
+        });
+      } finally {
+        // Restore button state
+        btn.html(originalHtml);
+        btn.removeClass("disabled").removeAttr("disabled");
+        updateClusterButton();
+      }
+    }, 500);
   });
 
   // Show cluster results with detailed steps
@@ -441,16 +727,27 @@ $(document).ready(function () {
 
     result.clusters.forEach((c) => clusterCounts[c]++);
 
-    let html = "<h4>Hasil Klasterisasi</h4>";
-    html += `<p>Jumlah Iterasi: ${result.iterations}</p>`;
-    html += `<p>Silhouette Score: ${result.silhouetteScore.toFixed(
+    let html = "<h4>Hasil Klasterisasi K-Means</h4>";
+
+    // Show initialization method
+    const centroidMethod = $('input[name="centroid-method"]:checked').val();
+    if (centroidMethod === "manual") {
+      html +=
+        '<div class="blue-text" style="margin-bottom: 15px;"><i class="material-icons tiny">info</i> <strong>Metode:</strong> Centroid Manual (dipilih oleh pengguna)</div>';
+    } else {
+      html +=
+        '<div class="blue-text" style="margin-bottom: 15px;"><i class="material-icons tiny">shuffle</i> <strong>Metode:</strong> Centroid Acak (otomatis)</div>';
+    }
+
+    html += `<p><strong>Jumlah Iterasi:</strong> ${result.iterations}</p>`;
+    html += `<p><strong>Silhouette Score:</strong> ${result.silhouetteScore.toFixed(
       4
     )} (${interpretSilhouetteScore(result.silhouetteScore)})</p>`;
     html +=
-      '<table class="table table-bordered"><thead><tr><th>Klaster</th><th>Jumlah gastronomi</th><th>Centroid</th></tr></thead><tbody>';
+      '<table class="table table-bordered"><thead><tr><th>Klaster</th><th>Jumlah gastronomi</th><th>Centroid Akhir</th></tr></thead><tbody>';
 
     result.centroids.forEach((centroid, idx) => {
-      html += `<tr><td>${clusterNames[idx]}</td><td>${clusterCounts[idx]}</td><td>`;
+      html += `<tr><td><strong>${clusterNames[idx]}</strong></td><td>${clusterCounts[idx]}</td><td>`;
       centroid.forEach((val, i) => {
         html += `${klasterisasiCriteria[i].nama}: ${val.toFixed(2)}<br>`;
       });

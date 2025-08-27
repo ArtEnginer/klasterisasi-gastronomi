@@ -2,7 +2,7 @@ const table = {
   gastronomi: $("#table-gastronomi").DataTable({
     responsive: true,
     ajax: {
-      url: origin + "/api/gastronomi",
+      url: baseUrl + "/api/gastronomi",
       dataSrc: "",
     },
     order: [
@@ -27,7 +27,7 @@ const table = {
         title: "Gambar",
         data: "gambar",
         render: (data, type, row) => {
-          return `<img src="${origin}/api/v2/source/storage/${data}" class="responsive-img" style="max-height: 100px; max-width: 100px;" />`;
+          return `<img src="${baseUrl}/api/v2/source/storage/${data}" class="responsive-img" style="max-height: 100px; max-width: 100px;" />`;
         },
       },
       {
@@ -155,7 +155,7 @@ $("form#form-add").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: origin + "/api/gastronomi",
+    url: baseUrl + "/api/gastronomi",
     data: formData,
     contentType: false, // WAJIB agar FormData bekerja
     processData: false, // WAJIB agar FormData tidak diubah jadi query string
@@ -197,7 +197,7 @@ $("body").on("click", ".btn-action", function (e) {
         if (result.isConfirmed) {
           $.ajax({
             type: "DELETE",
-            url: origin + "/api/gastronomi/" + id,
+            url: baseUrl + "/api/gastronomi/" + id,
             cache: false,
             success: (data) => {
               table.gastronomi.ajax.reload();
@@ -248,7 +248,7 @@ $("form#form-edit").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: origin + "/api/gastronomi/" + data.id,
+    url: baseUrl + "/api/gastronomi/" + data.id,
     data: data,
     cache: false,
     success: (data) => {
@@ -281,7 +281,7 @@ $("body").on("keyup", "#form-edit input[name=nama]", function (e) {
 
 $(document).ready(function () {
   cloud
-    .add(origin + "/api/gastronomi", {
+    .add(baseUrl + "/api/gastronomi", {
       name: "gastronomi",
       callback: (data) => {
         table.gastronomi.ajax.reload();
