@@ -51,7 +51,7 @@
     <div class="nav-divider"></div>
 
     <div class="nav-item">
-        <a href="<?= base_url('logout') ?>" class="nav-link btn-logout">
+        <a href="<?= base_url() ?>logout" class="nav-link btn-logout">
             <i class="material-icons">logout</i>
             <span>Keluar Sistem</span>
         </a>
