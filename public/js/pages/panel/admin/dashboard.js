@@ -726,11 +726,15 @@ $(document).ready(function () {
     const clusterCounts = Array(result.centroids.length).fill(0);
 
     // Group gastronomi by cluster
-    const gastronomiByCluster = Array(result.centroids.length).fill().map(() => []);
-    
+    const gastronomiByCluster = Array(result.centroids.length)
+      .fill()
+      .map(() => []);
+
     result.clusters.forEach((clusterIndex, gastronomiIndex) => {
       clusterCounts[clusterIndex]++;
-      gastronomiByCluster[clusterIndex].push(gastronomiData[gastronomiIndex].nama);
+      gastronomiByCluster[clusterIndex].push(
+        gastronomiData[gastronomiIndex].nama
+      );
     });
 
     let html = "<h4>Hasil Klasterisasi K-Means</h4>";
@@ -758,7 +762,7 @@ $(document).ready(function () {
         html += `${klasterisasiCriteria[i].nama}: ${val.toFixed(2)}<br>`;
       });
       html += "</td><td>";
-      
+
       // Add gastronomi names for this cluster
       if (gastronomiByCluster[idx].length > 0) {
         gastronomiByCluster[idx].forEach((nama, index) => {
@@ -770,7 +774,7 @@ $(document).ready(function () {
       } else {
         html += "<em>Tidak ada wisata gastronomi</em>";
       }
-      
+
       html += "</td></tr>";
     });
 
