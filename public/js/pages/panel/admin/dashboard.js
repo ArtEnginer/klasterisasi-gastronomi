@@ -725,7 +725,13 @@ $(document).ready(function () {
     const clusterNames = ["Sangat Bagus", "Cukup Bagus", "Kurang Bagus"];
     const clusterCounts = Array(result.centroids.length).fill(0);
 
-    result.clusters.forEach((c) => clusterCounts[c]++);
+    // Group gastronomi by cluster
+    const gastronomiByCluster = Array(result.centroids.length).fill().map(() => []);
+    
+    result.clusters.forEach((clusterIndex, gastronomiIndex) => {
+      clusterCounts[clusterIndex]++;
+      gastronomiByCluster[clusterIndex].push(gastronomiData[gastronomiIndex].nama);
+    });
 
     let html = "<h4>Hasil Klasterisasi K-Means</h4>";
 
@@ -744,13 +750,27 @@ $(document).ready(function () {
       4
     )} (${interpretSilhouetteScore(result.silhouetteScore)})</p>`;
     html +=
-      '<table class="table table-bordered"><thead><tr><th>Klaster</th><th>Jumlah gastronomi</th><th>Centroid Akhir</th></tr></thead><tbody>';
+      '<table class="table table-bordered"><thead><tr><th>Klaster</th><th>Jumlah gastronomi</th><th>Centroid Akhir</th><th>Nama Wisata Gastronomi</th></tr></thead><tbody>';
 
     result.centroids.forEach((centroid, idx) => {
       html += `<tr><td><strong>${clusterNames[idx]}</strong></td><td>${clusterCounts[idx]}</td><td>`;
       centroid.forEach((val, i) => {
         html += `${klasterisasiCriteria[i].nama}: ${val.toFixed(2)}<br>`;
       });
+      html += "</td><td>";
+      
+      // Add gastronomi names for this cluster
+      if (gastronomiByCluster[idx].length > 0) {
+        gastronomiByCluster[idx].forEach((nama, index) => {
+          html += `${index + 1}. ${nama}`;
+          if (index < gastronomiByCluster[idx].length - 1) {
+            html += "<br>";
+          }
+        });
+      } else {
+        html += "<em>Tidak ada wisata gastronomi</em>";
+      }
+      
       html += "</td></tr>";
     });
 
